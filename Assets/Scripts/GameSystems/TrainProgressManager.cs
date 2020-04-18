@@ -22,13 +22,23 @@ public class TrainProgressManager : Singleton<TrainProgressManager>
 
     private void Update()
     {
-        Velocity -= Time.deltaTime * 0.5f; //TODO: based on properties of fuel.
+        float velocityDecay = 1f; //TODO: based on properties of fuel.
+        if (Velocity > 100f)
+        {
+            velocityDecay *= 3f;
+        }
+
+        Velocity = Mathf.Max(Velocity - (Time.deltaTime * velocityDecay), 0f);
         DestinationProgress += Time.deltaTime * Velocity * 0.0001f * baseSpeedModifier;
 
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.C))
         {
             AddCoal();
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            SlowTrain(15f);
         }
 #endif
     }
@@ -38,5 +48,10 @@ public class TrainProgressManager : Singleton<TrainProgressManager>
         Velocity += 10f;
 
         Velocity = Mathf.Min(Velocity, MAX_VELOCITY);
+    }
+
+    public void SlowTrain(float amount)
+    {
+        Velocity -= amount;
     }
 }

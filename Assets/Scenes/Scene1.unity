@@ -280,6 +280,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &154001386 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6295864796504365339, guid: 67b5e328291aa3046b9bd7646770718a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1035586475}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab5d04edc57f81446b84bde544bad3e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &218796339
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,7 +668,7 @@ MonoBehaviour:
   repeatingObject: {fileID: 1152636251}
   span: 7
   objectSpacing: 3.5
-  moveSpeed: 1
+  moveSpeed: 2
 --- !u!1 &451430454
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,6 +1095,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &533350462 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6176250606706940375, guid: 67b5e328291aa3046b9bd7646770718a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6176250608123783167}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab5d04edc57f81446b84bde544bad3e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &564524918
 GameObject:
   m_ObjectHideFlags: 0
@@ -1974,7 +1998,7 @@ PrefabInstance:
     - target: {fileID: 6176250606706940375, guid: 67b5e328291aa3046b9bd7646770718a,
         type: 3}
       propertyPath: rotateSpeed
-      value: 300
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 6295864795319671145, guid: 67b5e328291aa3046b9bd7646770718a,
         type: 3}
@@ -2064,7 +2088,7 @@ PrefabInstance:
     - target: {fileID: 6295864796504365339, guid: 67b5e328291aa3046b9bd7646770718a,
         type: 3}
       propertyPath: rotateSpeed
-      value: 300
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67b5e328291aa3046b9bd7646770718a, type: 3}
@@ -3162,6 +3186,18 @@ Transform:
   m_Father: {fileID: 686273703}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1692090701 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6295864796504365339, guid: 67b5e328291aa3046b9bd7646770718a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6176250608123783167}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab5d04edc57f81446b84bde544bad3e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1715171886
 GameObject:
   m_ObjectHideFlags: 0
@@ -3333,6 +3369,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1790108843 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6176250606706940375, guid: 67b5e328291aa3046b9bd7646770718a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1035586475}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab5d04edc57f81446b84bde544bad3e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1886344321
 GameObject:
   m_ObjectHideFlags: 0
@@ -3752,6 +3800,7 @@ GameObject:
   - component: {fileID: 2017521635}
   - component: {fileID: 2017521637}
   - component: {fileID: 2017521636}
+  - component: {fileID: 2017521638}
   m_Layer: 0
   m_Name: Train
   m_TagString: Untagged
@@ -3812,6 +3861,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseSpeedModifier: 1
+--- !u!114 &2017521638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017521634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ee957aea0d9f63498558f68f589a892, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheels:
+  - {fileID: 1692090701}
+  - {fileID: 533350462}
+  - {fileID: 154001386}
+  - {fileID: 1790108843}
+  trainShakeAnim: {fileID: 523471772}
+  bgAnim: {fileID: 1789857944}
+  fgConveyor: {fileID: 413583105}
+  apparentVelocityCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.006306563
+      value: 0.098756015
+      inSlope: 0.29614267
+      outSlope: 0.29614267
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.08021693
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2039831134
 GameObject:
   m_ObjectHideFlags: 0
@@ -3902,7 +3995,7 @@ PrefabInstance:
     - target: {fileID: 6176250606706940375, guid: 67b5e328291aa3046b9bd7646770718a,
         type: 3}
       propertyPath: rotateSpeed
-      value: 300
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 6295864795319671145, guid: 67b5e328291aa3046b9bd7646770718a,
         type: 3}
@@ -3967,7 +4060,7 @@ PrefabInstance:
     - target: {fileID: 6295864796504365339, guid: 67b5e328291aa3046b9bd7646770718a,
         type: 3}
       propertyPath: rotateSpeed
-      value: 300
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67b5e328291aa3046b9bd7646770718a, type: 3}

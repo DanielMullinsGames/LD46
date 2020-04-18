@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RepeatingConveyor : MonoBehaviour
 {
+    public float MoveSpeedModifier { private get; set; }
+
     [SerializeField]
     private GameObject repeatingObject = default;
 
@@ -23,6 +25,7 @@ public class RepeatingConveyor : MonoBehaviour
 
     private void Start()
     {
+        MoveSpeedModifier = 1f;
         SpawnObjects();
     }
 
@@ -46,7 +49,7 @@ public class RepeatingConveyor : MonoBehaviour
     {
         foreach (Transform obj in objects)
         {
-            obj.localPosition += Vector3.left * moveSpeed * Time.deltaTime;
+            obj.localPosition += Vector3.left * moveSpeed * Time.deltaTime * MoveSpeedModifier;
             if (obj.localPosition.x < LeftBound)
             {
                 obj.localPosition = new Vector3(RightBound, obj.localPosition.y, obj.localPosition.z);
