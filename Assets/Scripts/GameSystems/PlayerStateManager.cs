@@ -11,6 +11,7 @@ public enum PlayerState
     PumpUp,
     PumpDown,
     Fallen,
+    TyingShoes,
     NUM_STATES,
 }
 
@@ -35,7 +36,7 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
 
     private bool switchingState;
 
-    private void SwitchToState(PlayerState state, float shakeMagnitude)
+    public void SwitchToState(PlayerState state, float shakeMagnitude)
     {
         if (!switchingState)
         {
@@ -48,9 +49,10 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
             }
             else
             {
-                if (state == PlayerState.Idle)
+                if (state == PlayerState.Idle && Mathf.Abs(shakeMagnitude) > 0f)
                 {
                     GetPlayerObject(PlayerState.Idle).transform.localScale = new Vector2(shakeMagnitude > 0f ? -1f : 1f, 1f);
+                    GetPlayerObject(PlayerState.TyingShoes).transform.localScale = new Vector2(shakeMagnitude > 0f ? -1f : 1f, 1f);
                 }
                 StartCoroutine(SwitchStateSequence(state, shakeMagnitude));
             }
@@ -66,6 +68,16 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
     {
         switch (CurrentState)
         {
+            case PlayerState.TyingShoes:
+                if (Input.GetButtonDown("PlayerLeft"))
+                {
+                    SwitchToState(PlayerState.PumpUp, -1f);
+                }
+                if (Input.GetButtonDown("PlayerRight"))
+                {
+                    SwitchToState(PlayerState.ShovelTake, 1f);
+                }
+                break;
             case PlayerState.Idle:
                 if (Input.GetButtonDown("PlayerLeft"))
                 {
@@ -74,6 +86,10 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
                 if (Input.GetButtonDown("PlayerRight"))
                 {
                     SwitchToState(PlayerState.ShovelTake, 1f);
+                }
+                if (ShoesUntied && Input.GetButtonDown("PlayerDown"))
+                {
+                    SwitchToState(PlayerState.TyingShoes, 0f);
                 }
                 break;
             case PlayerState.PumpUp:

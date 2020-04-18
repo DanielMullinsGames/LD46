@@ -6,6 +6,11 @@ public class ShoelacesStation : Singleton<ShoelacesStation>
 {
     public float UntieChance { get; private set; }
 
+    public float TieProgress { get; private set; }
+
+    [SerializeField]
+    private float tieSpeed = 1f;
+
     private void Start()
     {
         PlayerStateManager.Instance.StateChanged += OnStateChanged;
@@ -30,6 +35,22 @@ public class ShoelacesStation : Singleton<ShoelacesStation>
             case PlayerState.Fallen:
                 TrainProgressManager.Instance.Anim.Play("boost", 0, 0f);
                 break;
+            case PlayerState.TyingShoes:
+                TieProgress = 0f;
+                break;
+        }
+    }
+
+    private void Update()
+    {
+        if (PlayerStateManager.Instance.CurrentState == PlayerState.TyingShoes)
+        {
+            TieProgress += Time.deltaTime * tieSpeed;
+            if (TieProgress > 1f)
+            {
+                PlayerStateManager.Instance.ShoesUntied = false;
+                PlayerStateManager.Instance.SwitchToState(PlayerState.Idle, 0f);
+            }
         }
     }
 }
