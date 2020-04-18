@@ -105,7 +105,6 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
             case PlayerState.PumpDown:
                 if (Input.GetButtonDown("PlayerUp"))
                 {
-                    AudioController.Instance.PlaySound2D("crunch_blip");
                     SwitchToState(PlayerState.PumpUp, 0f);
                 }
                 if (Input.GetButtonDown("PlayerRight"))
@@ -142,7 +141,8 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
                         else
                         {
                             standUpProgress++;
-                            StartCoroutine(ShakePlayer(1f));
+                            AudioController.Instance.PlaySound2D("crunch_blip");
+                            StartCoroutine(ShakePlayer(0.75f));
                         }
                     }
                 }
@@ -189,6 +189,13 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
                 break;
             case PlayerState.ShovelPlace:
                 AudioController.Instance.PlaySound2D("crunch_short_2", pitch: new AudioParams.Pitch(1.25f));
+                break;
+            case PlayerState.TyingShoes:
+            case PlayerState.PumpUp:
+                AudioController.Instance.PlaySound2D("crunch_blip");
+                break;
+            case PlayerState.Fallen:
+                AudioController.Instance.PlaySound2D("crunch_short_1", pitch: new AudioParams.Pitch(0.5f));
                 break;
         }
     }

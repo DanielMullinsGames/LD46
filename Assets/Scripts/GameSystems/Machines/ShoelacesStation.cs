@@ -11,6 +11,9 @@ public class ShoelacesStation : Singleton<ShoelacesStation>
     [SerializeField]
     private float tieSpeed = 1f;
 
+    [SerializeField]
+    private GameObject untieAnimationObject;
+
     private void Start()
     {
         PlayerStateManager.Instance.StateChanged += OnStateChanged;
@@ -27,6 +30,11 @@ public class ShoelacesStation : Singleton<ShoelacesStation>
                     {
                         UntieChance = 0f;
                         PlayerStateManager.Instance.ShoesUntied = true;
+                        var untieAnim = Instantiate(untieAnimationObject);
+                        untieAnim.SetActive(true);
+                        untieAnim.transform.position = untieAnimationObject.transform.position;
+                        Destroy(untieAnim, 1f);
+                        AudioController.Instance.PlaySound2D("shoes_untied");
                     }
 
                     UntieChance += 0.1f;
@@ -48,8 +56,10 @@ public class ShoelacesStation : Singleton<ShoelacesStation>
             TieProgress += Time.deltaTime * tieSpeed;
             if (TieProgress > 1f)
             {
+                UntieChance = 0f;
                 PlayerStateManager.Instance.ShoesUntied = false;
                 PlayerStateManager.Instance.SwitchToState(PlayerState.Idle, 0f);
+                AudioController.Instance.PlaySound2D("success");
             }
         }
     }
