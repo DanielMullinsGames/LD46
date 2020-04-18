@@ -12,6 +12,7 @@ public class TrainProgressManager : Singleton<TrainProgressManager>
     [SerializeField]
     private float baseSpeedModifier = 1f;
 
+    public Animator Anim { get { return trainAnim; } }
     [SerializeField]
     private Animator trainAnim;
 

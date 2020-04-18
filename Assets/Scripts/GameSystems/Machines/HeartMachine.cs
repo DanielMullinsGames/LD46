@@ -12,6 +12,7 @@ public class HeartMachine : Singleton<HeartMachine>
     private void Start()
     {
         Vitality = 1f;
+        PlayerStateManager.Instance.StateChanged += OnStateChanged;
     }
 
     void Update()
@@ -29,5 +30,16 @@ public class HeartMachine : Singleton<HeartMachine>
     public void Boost()
     {
         Vitality = Mathf.Clamp(Vitality + 0.1f, 0f, 1f);
+    }
+
+    private void OnStateChanged(PlayerState state)
+    {
+        switch (state)
+        {
+            case PlayerState.PumpDown:
+                TrainProgressManager.Instance.Anim.Play("pump", 0, 0f);
+                Boost();
+                break;
+        }
     }
 }
