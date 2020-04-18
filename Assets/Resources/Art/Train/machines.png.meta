@@ -20,6 +20,12 @@ TextureImporter:
   - first:
       213: 2666080146291131090
     second: machines_5
+  - first:
+      213: 5695089152180243490
+    second: machines_6
+  - first:
+      213: -2518500475171988858
+    second: machines_7
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -225,6 +231,48 @@ TextureImporter:
       bones: []
       spriteID: e4d1e8ed1effd544cab43fe01b2dc154
       internalID: 2666080146291131090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: machines_6
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 91
+        width: 25
+        height: 18
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 786c7432924657c49a942d7b16530160
+      internalID: 5695089152180243490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: machines_7
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 68
+        width: 25
+        height: 18
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9f569630f026ea41bbac9f2f87edc8e
+      internalID: -2518500475171988858
       vertices: []
       indices: 
       edges: []

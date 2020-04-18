@@ -8,6 +8,8 @@ public enum PlayerState
     Idle,
     ShovelTake,
     ShovelPlace,
+    PumpUp,
+    PumpDown,
     NUM_STATES,
 }
 
