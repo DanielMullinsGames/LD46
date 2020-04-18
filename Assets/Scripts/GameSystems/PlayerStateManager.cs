@@ -58,6 +58,7 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
             case PlayerState.PumpDown:
                 if (Input.GetButtonDown("PlayerUp"))
                 {
+                    AudioController.Instance.PlaySound2D("crunch_blip");
                     SwitchToState(PlayerState.PumpUp, 0f);
                 }
                 if (Input.GetButtonDown("PlayerRight"))
@@ -96,11 +97,25 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
         currentObject = GetPlayerObject(CurrentState);
         currentObject.gameObject.SetActive(true);
         currentObject.transform.localPosition = currentObject.OriginalPosition;
+        PlaySoundForState(state);
 
         Tween.LocalPosition(currentObject.transform, currentObject.transform.localPosition + Vector3.right * 0.03f * shakeMagnitude, 0.025f, 0f, Tween.EaseOut);
         yield return new WaitForSeconds(0.025f);
         Tween.LocalPosition(currentObject.transform, currentObject.transform.localPosition + Vector3.left * 0.03f * shakeMagnitude, 0.025f, 0f, Tween.EaseIn);
         yield return new WaitForSeconds(0.025f);
+    }
+
+    private void PlaySoundForState(PlayerState state)
+    {
+        switch (state)
+        {
+            case PlayerState.ShovelTake:
+                AudioController.Instance.PlaySound2D("crunch_short_2");
+                break;
+            case PlayerState.ShovelPlace:
+                AudioController.Instance.PlaySound2D("crunch_short_2", pitch: new AudioParams.Pitch(1.25f));
+                break;
+        }
     }
 
     private PlayerStateObject GetPlayerObject(PlayerState state)

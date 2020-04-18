@@ -38,6 +38,7 @@ public class HeartMachine : Singleton<HeartMachine>
         {
             case PlayerState.PumpDown:
                 TrainProgressManager.Instance.Anim.Play("pump", 0, 0f);
+                AudioController.Instance.PlaySound2D("crunch_short_1", pitch: new AudioParams.Pitch(0.6f + (Vitality * 0.6f)));
                 Boost();
                 break;
         }
