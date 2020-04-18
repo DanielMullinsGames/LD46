@@ -28,13 +28,59 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        PollInputForStateChange();
+    }
+
+    private void PollInputForStateChange()
+    {
+        switch (CurrentState)
         {
-            SwitchToState(CurrentState + 1, 1f);
-        }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            SwitchToState(CurrentState - 1, -1f);
+            case PlayerState.Idle:
+                if (Input.GetButtonDown("PlayerLeft"))
+                {
+                    SwitchToState(PlayerState.PumpUp, -1f);
+                }
+                if (Input.GetButtonDown("PlayerRight"))
+                {
+                    SwitchToState(PlayerState.ShovelTake, 1f);
+                }
+                break;
+            case PlayerState.PumpUp:
+                if (Input.GetButtonDown("PlayerDown"))
+                {
+                    SwitchToState(PlayerState.PumpDown, 0f);
+                }
+                if (Input.GetButtonDown("PlayerRight"))
+                {
+                    SwitchToState(PlayerState.Idle, 1f);
+                }
+                break;
+            case PlayerState.PumpDown:
+                if (Input.GetButtonDown("PlayerUp"))
+                {
+                    SwitchToState(PlayerState.PumpUp, 0f);
+                }
+                if (Input.GetButtonDown("PlayerRight"))
+                {
+                    SwitchToState(PlayerState.Idle, 1f);
+                }
+                break;
+            case PlayerState.ShovelTake:
+                if (Input.GetButtonDown("PlayerLeft"))
+                {
+                    SwitchToState(PlayerState.Idle, -1f);
+                }
+                if (Input.GetButtonDown("PlayerRight"))
+                {
+                    SwitchToState(PlayerState.ShovelPlace, 1f);
+                }
+                break;
+            case PlayerState.ShovelPlace:
+                if (Input.GetButtonDown("PlayerLeft"))
+                {
+                    SwitchToState(PlayerState.ShovelTake, -1f);
+                }
+                break;
         }
     }
 
