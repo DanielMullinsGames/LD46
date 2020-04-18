@@ -17,6 +17,8 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
 {
     public System.Action<PlayerState> StateChanged;
     public PlayerState CurrentState { get; private set; }
+
+    public bool ShoesUntied { get; set; }
    
     [SerializeField]
     private List<PlayerStateObject> playerObjects;

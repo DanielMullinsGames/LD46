@@ -17,6 +17,9 @@ TextureImporter:
   - first:
       213: -8298696111794870260
     second: player_frames_4
+  - first:
+      213: 2626543162360654392
+    second: laces
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -201,6 +204,27 @@ TextureImporter:
       bones: []
       spriteID: 4149007b668441b4f9ecebf3aa23dec4
       internalID: -8298696111794870260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laces
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 252
+        width: 15
+        height: 3
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2cfb9fca7a62854aa6a976e2c6b9d31
+      internalID: 2626543162360654392
       vertices: []
       indices: 
       edges: []
