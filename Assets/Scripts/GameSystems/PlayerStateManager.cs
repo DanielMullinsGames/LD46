@@ -11,12 +11,13 @@ public enum PlayerState
     NUM_STATES,
 }
 
-public class PlayerStateManager : MonoBehaviour
+public class PlayerStateManager : Singleton<PlayerStateManager>
 {
+
+    public PlayerState CurrentState { get; private set; }
+   
     [SerializeField]
     private List<PlayerStateObject> playerObjects;
-
-    private PlayerState currentState = PlayerState.Idle;
 
     public void SwitchToState(PlayerState state, float shakeMagnitude)
     {
@@ -27,23 +28,23 @@ public class PlayerStateManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            SwitchToState(currentState + 1, 1f);
+            SwitchToState(CurrentState + 1, 1f);
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            SwitchToState(currentState - 1, -1f);
+            SwitchToState(CurrentState - 1, -1f);
         }
     }
 
     private IEnumerator SwitchStateSequence(PlayerState state, float shakeMagnitude)
     {
-        var currentObject = GetPlayerObject(currentState);
+        var currentObject = GetPlayerObject(CurrentState);
         Tween.LocalPosition(currentObject.transform, currentObject.transform.localPosition + Vector3.left * 0.04f * shakeMagnitude, 0.03f, 0f);
         yield return new WaitForSeconds(0.03f);
         currentObject.gameObject.SetActive(false);
 
-        currentState = state;
-        currentObject = GetPlayerObject(currentState);
+        CurrentState = state;
+        currentObject = GetPlayerObject(CurrentState);
         currentObject.gameObject.SetActive(true);
         currentObject.transform.localPosition = currentObject.OriginalPosition;
 
@@ -55,6 +56,6 @@ public class PlayerStateManager : MonoBehaviour
 
     private PlayerStateObject GetPlayerObject(PlayerState state)
     {
-        return playerObjects[Mathf.Clamp((int)currentState, 0, (int)PlayerState.NUM_STATES - 1)];
+        return playerObjects[Mathf.Clamp((int)CurrentState, 0, (int)PlayerState.NUM_STATES - 1)];
     }
 }
