@@ -20,6 +20,9 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
     public PlayerState CurrentState { get; private set; }
 
     public bool ShoesUntied { get; set; }
+    private int standUpProgress = 0;
+    private float lastStandupInput;
+    private const float STANDUP_ATTEMPT_DURATION = 0.5f;
    
     [SerializeField]
     private List<PlayerStateObject> playerObjects;
@@ -27,19 +30,28 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
     [SerializeField]
     private float tripChance = 0.25f;
 
+    [SerializeField]
+    private int standupCount = 4;
+
     private bool switchingState;
 
     private void SwitchToState(PlayerState state, float shakeMagnitude)
     {
         if (!switchingState)
         {
-            if (state == PlayerState.Idle && ShoesUntied && Random.value < tripChance)
+            if (state == PlayerState.Idle && CurrentState != PlayerState.Fallen && ShoesUntied && Random.value < tripChance)
             {
+                standUpProgress = 0;
+                lastStandupInput = Time.time;
                 GetPlayerObject(PlayerState.Fallen).transform.localScale = new Vector2(shakeMagnitude > 0f ? -1f : 1f, 1f);
-                StartCoroutine(SwitchStateSequence(PlayerState.Fallen, 4f));
+                StartCoroutine(SwitchStateSequence(PlayerState.Fallen, 2f));
             }
             else
             {
+                if (state == PlayerState.Idle)
+                {
+                    GetPlayerObject(PlayerState.Idle).transform.localScale = new Vector2(shakeMagnitude > 0f ? -1f : 1f, 1f);
+                }
                 StartCoroutine(SwitchStateSequence(state, shakeMagnitude));
             }
         }
@@ -101,6 +113,24 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
                     SwitchToState(PlayerState.ShovelTake, -1f);
                 }
                 break;
+            case PlayerState.Fallen:
+                if (Input.GetButtonDown("PlayerLeft") || Input.GetButtonDown("PlayerRight") || Input.GetButtonDown("PlayerUp"))
+                {
+                    if (Time.time - STANDUP_ATTEMPT_DURATION > lastStandupInput)
+                    {
+                        lastStandupInput = Time.time;
+                        if (standUpProgress > standupCount)
+                        {
+                            SwitchToState(PlayerState.Idle, -GetPlayerObject(CurrentState).transform.localScale.x);
+                        }
+                        else
+                        {
+                            standUpProgress++;
+                            StartCoroutine(ShakePlayer(1f));
+                        }
+                    }
+                }
+                break;
         }
     }
 
@@ -120,12 +150,18 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
         currentObject.transform.localPosition = currentObject.OriginalPosition;
         PlaySoundForState(state);
 
-        Tween.LocalPosition(currentObject.transform, currentObject.transform.localPosition + Vector3.right * 0.03f * shakeMagnitude, 0.025f, 0f, Tween.EaseOut);
-        yield return new WaitForSeconds(state == PlayerState.Fallen ? 0.1f : 0.025f);
-        Tween.LocalPosition(currentObject.transform, currentObject.transform.localPosition + Vector3.left * 0.03f * shakeMagnitude, 0.025f, 0f, Tween.EaseIn);
-        yield return new WaitForSeconds(state == PlayerState.Fallen ? 0.1f : 0.025f);
-
+        yield return ShakePlayer(shakeMagnitude);
         switchingState = false;
+    }
+
+    private IEnumerator ShakePlayer(float shakeMagnitude)
+    {
+        var currentObject = GetPlayerObject(CurrentState);
+
+        Tween.LocalPosition(currentObject.transform, currentObject.transform.localPosition + Vector3.right * 0.03f * shakeMagnitude, 0.025f, 0f, Tween.EaseOut);
+        yield return new WaitForSeconds(CurrentState == PlayerState.Fallen ? 0.1f : 0.025f);
+        Tween.LocalPosition(currentObject.transform, currentObject.transform.localPosition + Vector3.left * 0.03f * shakeMagnitude, 0.025f, 0f, Tween.EaseIn);
+        yield return new WaitForSeconds(CurrentState == PlayerState.Fallen ? 0.1f : 0.025f);
     }
 
     private void PlaySoundForState(PlayerState state)

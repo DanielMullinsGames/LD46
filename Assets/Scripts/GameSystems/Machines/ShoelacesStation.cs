@@ -27,6 +27,9 @@ public class ShoelacesStation : Singleton<ShoelacesStation>
                     UntieChance += 0.1f;
                 }
                 break;
+            case PlayerState.Fallen:
+                TrainProgressManager.Instance.Anim.Play("boost", 0, 0f);
+                break;
         }
     }
 }

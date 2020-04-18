@@ -3217,6 +3217,8 @@ MonoBehaviour:
   - {fileID: 1987537212}
   - {fileID: 384661349}
   - {fileID: 1499677178}
+  tripChance: 0.25
+  standupCount: 3
 --- !u!1 &1250154325
 GameObject:
   m_ObjectHideFlags: 0
