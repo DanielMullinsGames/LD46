@@ -13,7 +13,7 @@ public enum PlayerState
 
 public class PlayerStateManager : Singleton<PlayerStateManager>
 {
-
+    public System.Action<PlayerState> StateChanged;
     public PlayerState CurrentState { get; private set; }
    
     [SerializeField]
@@ -44,6 +44,7 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
         currentObject.gameObject.SetActive(false);
 
         CurrentState = state;
+        StateChanged?.Invoke(state);
         currentObject = GetPlayerObject(CurrentState);
         currentObject.gameObject.SetActive(true);
         currentObject.transform.localPosition = currentObject.OriginalPosition;

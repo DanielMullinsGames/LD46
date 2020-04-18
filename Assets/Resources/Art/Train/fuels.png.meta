@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: -9135309867074301302
     second: fuels_0
+  - first:
+      213: -1327014979995746164
+    second: fuels_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -97,7 +100,7 @@ TextureImporter:
         width: 11
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -105,6 +108,27 @@ TextureImporter:
       bones: []
       spriteID: e5831d490fa23494b8b2708058ddbc29
       internalID: -9135309867074301302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fuels_1
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 49
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62958c555cb8ee546bf6383c66814c27
+      internalID: -1327014979995746164
       vertices: []
       indices: 
       edges: []

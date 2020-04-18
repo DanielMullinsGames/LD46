@@ -22,7 +22,7 @@ public class TrainProgressManager : Singleton<TrainProgressManager>
 
     private void Update()
     {
-        float velocityDecay = 1f; //TODO: based on properties of fuel.
+        float velocityDecay = 2f; //TODO: based on properties of fuel.
         if (Velocity > 100f)
         {
             velocityDecay *= 3f;
@@ -34,7 +34,7 @@ public class TrainProgressManager : Singleton<TrainProgressManager>
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.C))
         {
-            AddCoal();
+            AddFuel();
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
@@ -43,7 +43,7 @@ public class TrainProgressManager : Singleton<TrainProgressManager>
 #endif
     }
 
-    public void AddCoal()
+    public void AddFuel()
     {
         Velocity += 10f;
 
