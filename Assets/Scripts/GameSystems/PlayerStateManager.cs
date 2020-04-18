@@ -10,6 +10,7 @@ public enum PlayerState
     ShovelPlace,
     PumpUp,
     PumpDown,
+    Fallen,
     NUM_STATES,
 }
 
@@ -23,9 +24,25 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
     [SerializeField]
     private List<PlayerStateObject> playerObjects;
 
-    public void SwitchToState(PlayerState state, float shakeMagnitude)
+    [SerializeField]
+    private float tripChance = 0.25f;
+
+    private bool switchingState;
+
+    private void SwitchToState(PlayerState state, float shakeMagnitude)
     {
-        StartCoroutine(SwitchStateSequence(state, shakeMagnitude));
+        if (!switchingState)
+        {
+            if (state == PlayerState.Idle && ShoesUntied && Random.value < tripChance)
+            {
+                GetPlayerObject(PlayerState.Fallen).transform.localScale = new Vector2(shakeMagnitude > 0f ? -1f : 1f, 1f);
+                StartCoroutine(SwitchStateSequence(PlayerState.Fallen, 4f));
+            }
+            else
+            {
+                StartCoroutine(SwitchStateSequence(state, shakeMagnitude));
+            }
+        }
     }
 
     private void Update()
@@ -89,9 +106,11 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
 
     private IEnumerator SwitchStateSequence(PlayerState state, float shakeMagnitude)
     {
+        switchingState = true;
+
         var currentObject = GetPlayerObject(CurrentState);
         Tween.LocalPosition(currentObject.transform, currentObject.transform.localPosition + Vector3.left * 0.04f * shakeMagnitude, 0.03f, 0f);
-        yield return new WaitForSeconds(0.03f);
+        yield return new WaitForSeconds(state == PlayerState.Fallen ? 0.2f : 0.03f);
         currentObject.gameObject.SetActive(false);
 
         CurrentState = state;
@@ -102,9 +121,11 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
         PlaySoundForState(state);
 
         Tween.LocalPosition(currentObject.transform, currentObject.transform.localPosition + Vector3.right * 0.03f * shakeMagnitude, 0.025f, 0f, Tween.EaseOut);
-        yield return new WaitForSeconds(0.025f);
+        yield return new WaitForSeconds(state == PlayerState.Fallen ? 0.1f : 0.025f);
         Tween.LocalPosition(currentObject.transform, currentObject.transform.localPosition + Vector3.left * 0.03f * shakeMagnitude, 0.025f, 0f, Tween.EaseIn);
-        yield return new WaitForSeconds(0.025f);
+        yield return new WaitForSeconds(state == PlayerState.Fallen ? 0.1f : 0.025f);
+
+        switchingState = false;
     }
 
     private void PlaySoundForState(PlayerState state)
@@ -122,6 +143,6 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
 
     private PlayerStateObject GetPlayerObject(PlayerState state)
     {
-        return playerObjects[Mathf.Clamp((int)CurrentState, 0, (int)PlayerState.NUM_STATES - 1)];
+        return playerObjects[Mathf.Clamp((int)state, 0, (int)PlayerState.NUM_STATES - 1)];
     }
 }

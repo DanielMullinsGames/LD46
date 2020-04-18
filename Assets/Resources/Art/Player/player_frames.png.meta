@@ -20,6 +20,9 @@ TextureImporter:
   - first:
       213: 2626543162360654392
     second: laces
+  - first:
+      213: 2626543162360654392
+    second: player_frames_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -224,6 +227,27 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: a2cfb9fca7a62854aa6a976e2c6b9d31
+      internalID: 2626543162360654392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_frames_5
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 143
+        width: 71
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74aab636da5c35b4894de5148368fc1c
       internalID: 2626543162360654392
       vertices: []
       indices: 
