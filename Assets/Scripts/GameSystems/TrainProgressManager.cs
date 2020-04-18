@@ -12,6 +12,9 @@ public class TrainProgressManager : Singleton<TrainProgressManager>
     [SerializeField]
     private float baseSpeedModifier = 1f;
 
+    [SerializeField]
+    private Animator trainAnim;
+
     private const float MIN_VELOCITY = 25f;
     private const float MAX_VELOCITY = 125f;
 
@@ -22,7 +25,7 @@ public class TrainProgressManager : Singleton<TrainProgressManager>
 
     private void Update()
     {
-        float velocityDecay = 2f; //TODO: based on properties of fuel.
+        float velocityDecay = 3f; //TODO: based on properties of fuel.
         if (Velocity > 100f)
         {
             velocityDecay *= 3f;
@@ -45,9 +48,10 @@ public class TrainProgressManager : Singleton<TrainProgressManager>
 
     public void AddFuel()
     {
-        Velocity += 10f;
-
+        Velocity += 15f;
         Velocity = Mathf.Min(Velocity, MAX_VELOCITY);
+
+        trainAnim.Play("boost", 0, 0f);
     }
 
     public void SlowTrain(float amount)

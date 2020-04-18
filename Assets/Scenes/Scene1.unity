@@ -4305,6 +4305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseSpeedModifier: 1
+  trainAnim: {fileID: 523471772}
 --- !u!114 &2017521638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4599,22 +4600,22 @@ PrefabInstance:
     - target: {fileID: 7137609442661504360, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.000657022
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7137609442661504360, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.07647058
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7137609442661504360, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.99868596
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7137609442661504360, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.84705883
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7137609442661504363, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
