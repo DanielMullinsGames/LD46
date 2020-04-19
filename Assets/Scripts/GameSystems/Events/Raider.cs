@@ -36,6 +36,12 @@ public class Raider : MonoBehaviour
         canShoot = true;
     }
 
+    public void Die()
+    {
+        GetComponent<Animator>().Play("die", 0, 0f);
+        enabled = false;
+    }
+
     private void Update()
     {
         if (canShoot)

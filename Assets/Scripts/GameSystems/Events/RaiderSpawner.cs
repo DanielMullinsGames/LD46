@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RaiderSpawner : MonoBehaviour
+public class RaiderSpawner : Singleton<RaiderSpawner>
 {
     [SerializeField]
     private GameObject raiderPrefab;
@@ -22,34 +22,42 @@ public class RaiderSpawner : MonoBehaviour
     [SerializeField]
     private float timeToSpawn = 2f;
 
-    private Raider currentRaider;
+    public Raider CurrentRaider { get; private set; }
 
     private float spawnTimer;
 
     private void Update()
     {
-        if (TrainProgressManager.Instance.NormalizedVelocity < 0.25f && currentRaider == null)
+        if (TrainProgressManager.Instance.NormalizedVelocity < 0.25f && CurrentRaider == null)
         {
             spawnTimer += Time.deltaTime;
 
             if (spawnTimer > timeToSpawn)
             {
+                spawnTimer = 0f;
                 SpawnRaider();
             }
         }
     }
 
+    public void OnRaiderShot()
+    {
+        CurrentRaider.Die();
+        CurrentRaider = null;
+        spawnTimer -= 2f;
+    }
+
     private void SpawnRaider()
     {
         var raiderObj = Instantiate(raiderPrefab);
-        currentRaider = raiderObj.GetComponent<Raider>();
+        CurrentRaider = raiderObj.GetComponent<Raider>();
 
         bool leftWindow = Random.value > 0.5f;
         float xMin = leftWindow ? leftWindowMin.localPosition.x : rightWindowMin.localPosition.x;
         float xMax = leftWindow ? leftWindowMax.localPosition.x : rightWindowMax.localPosition.x;
         float x = xMin + ((xMax - xMin) * Random.value);
         float y = leftWindowMin.localPosition.y;
-        currentRaider.transform.parent = transform;
-        currentRaider.transform.localPosition = new Vector2(x, y);
+        CurrentRaider.transform.parent = transform;
+        CurrentRaider.transform.localPosition = new Vector2(x, y);
     }
 }

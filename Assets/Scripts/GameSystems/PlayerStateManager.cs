@@ -30,6 +30,9 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
     private List<PlayerStateObject> playerObjects;
 
     [SerializeField]
+    private GameObject gunflare;
+
+    [SerializeField]
     private float tripChance = 0.25f;
 
     [SerializeField]
@@ -93,6 +96,10 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
                 {
                     SwitchToState(PlayerState.ShovelTake, 1f);
                 }
+                if (Input.GetButtonDown("PlayerUp"))
+                {
+                    SwitchToState(PlayerState.AimingGun, 1f);
+                }
                 if (ShoesUntied && Input.GetButtonDown("PlayerDown"))
                 {
                     SwitchToState(PlayerState.TyingShoes, 0f);
@@ -153,6 +160,34 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
                     }
                 }
                 break;
+            case PlayerState.AimingGun:
+                if (RaiderSpawner.Instance.CurrentRaider != null && RaiderSpawner.Instance.CurrentRaider.CanBeShot)
+                {
+                    if (Input.GetButtonDown("PlayerUp"))
+                    {
+                        ShootGun();
+                    }
+                }
+                else
+                {
+                    if (Input.GetButtonDown("PlayerUp"))
+                    {
+                        AudioController.Instance.PlaySound2D("crunch_blip");
+                    }
+                    if (Input.GetButtonDown("PlayerLeft"))
+                    {
+                        SwitchToState(PlayerState.PumpUp, -1f);
+                    }
+                    if (Input.GetButtonDown("PlayerRight"))
+                    {
+                        SwitchToState(PlayerState.ShovelTake, 1f);
+                    }
+                    if (Input.GetButtonDown("PlayerDown"))
+                    {
+                        SwitchToState(PlayerState.Idle, 0.5f);
+                    }
+                }
+                break;
         }
     }
 
@@ -196,6 +231,7 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
             case PlayerState.ShovelPlace:
                 AudioController.Instance.PlaySound2D("crunch_short_2", pitch: new AudioParams.Pitch(1.25f));
                 break;
+            case PlayerState.AimingGun:
             case PlayerState.TyingShoes:
             case PlayerState.PumpUp:
                 AudioController.Instance.PlaySound2D("crunch_blip");
@@ -204,6 +240,14 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
                 AudioController.Instance.PlaySound2D("crunch_short_1", pitch: new AudioParams.Pitch(0.5f));
                 break;
         }
+    }
+
+    private void ShootGun()
+    {
+        gunflare.SetActive(true);
+        CustomCoroutine.WaitThenExecute(0.05f, () => gunflare.SetActive(false));
+        AudioController.Instance.PlaySound2D("gunshot_2");
+        RaiderSpawner.Instance.OnRaiderShot();
     }
 
     private PlayerStateObject GetPlayerObject(PlayerState state)

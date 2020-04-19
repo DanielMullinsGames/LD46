@@ -41,6 +41,9 @@ TextureImporter:
   - first:
       213: -3932212268213270252
     second: player_frames_11
+  - first:
+      213: -8372651400651860647
+    second: player_frames_12
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -393,6 +396,27 @@ TextureImporter:
       bones: []
       spriteID: f858c758bebfab74eb754550f8a23978
       internalID: -3932212268213270252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_frames_12
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 79
+        width: 25
+        height: 4
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3a9ef644bd0f81459c95f4ca7288c73
+      internalID: -8372651400651860647
       vertices: []
       indices: 
       edges: []
