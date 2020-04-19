@@ -166,7 +166,7 @@ MonoBehaviour:
   text: {fileID: 101508403}
   nextScene: Scene4
   ui: {fileID: 7958692622279912516}
-  baseCoalGain: 20
+  baseCoalGain: 5
   replenishCoal: 1
   baseBulletsGain: 0
   deadHeartLines: []
