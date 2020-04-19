@@ -19,6 +19,9 @@ public class VelocityBasedEffects : MonoBehaviour
     [SerializeField]
     private AnimationCurve apparentVelocityCurve;
 
+    [SerializeField]
+    private AudioSource loop;
+
     private float baseWheelSpeed;
 
     private void Start()
@@ -34,5 +37,7 @@ public class VelocityBasedEffects : MonoBehaviour
         trainShakeAnim.speed = modifier * 2f;
         bgAnim.speed = modifier * 2f;
         wheels.ForEach(x => x.rotateSpeed = modifier * baseWheelSpeed);
+
+        loop.pitch = 0.75f + (modifier * 0.5f);
     }
 }
