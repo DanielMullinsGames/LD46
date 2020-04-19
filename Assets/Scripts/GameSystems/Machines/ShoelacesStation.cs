@@ -50,6 +50,7 @@ public class ShoelacesStation : Singleton<ShoelacesStation>
                 break;
             case PlayerState.TyingShoes:
                 TieProgress = 0f;
+                PlayerStateManager.learnedShoeTying = true;
                 break;
         }
     }

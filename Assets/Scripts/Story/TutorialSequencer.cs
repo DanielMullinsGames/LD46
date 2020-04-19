@@ -151,6 +151,7 @@ public class TutorialSequencer : MonoBehaviour
 
         PlayerStateManager.Instance.enabled = true;
         PlayerStateManager.Instance.OnlyShoes = false;
+        PlayerStateManager.learnedShoeTying = false;
     }
 
     private IEnumerator PlayMessage(string message, bool clear = true, bool endAbrupt = false)

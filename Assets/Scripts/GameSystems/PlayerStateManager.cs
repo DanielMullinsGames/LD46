@@ -37,16 +37,19 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
     private GameObject shootHint;
 
     [SerializeField]
-    private GameObject gunflare;
+    private GameObject tieHint;
 
     [SerializeField]
-    private float tripChance = 0.25f;
+    private GameObject gunflare;
+
+    private float tripChance = 0.2f;
 
     private int standupCount = 6;
 
     private bool switchingState;
 
     private static bool learnedShooting;
+    public static bool learnedShoeTying;
 
     public Transform GetCurrentPlayerTransform()
     {
@@ -79,6 +82,15 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
     private void Update()
     {
         PollInputForStateChange();
+
+        if (ShoesUntied && CurrentState != PlayerState.Fallen && CurrentState != PlayerState.PumpDown && CurrentState != PlayerState.PumpUp && !learnedShoeTying && !OnlyShoes)
+        {
+            tieHint.SetActive(true);
+        }
+        else
+        {
+            tieHint.SetActive(false);
+        }
     }
 
     private void PollInputForStateChange()
