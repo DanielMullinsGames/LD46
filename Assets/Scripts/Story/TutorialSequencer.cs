@@ -25,6 +25,9 @@ public class TutorialSequencer : MonoBehaviour
     [SerializeField]
     private Animator trainAnim;
 
+    [SerializeField]
+    private GameObject shoelacePrompt;
+
     private void Start()
     {
         StartCoroutine(Tutorial());
@@ -50,7 +53,13 @@ public class TutorialSequencer : MonoBehaviour
 
         PlayerStateManager.Instance.enabled = true;
         PlayerStateManager.Instance.OnlyShoes = true;
+
+        yield return new WaitForSeconds(0.2f);
+        shoelacePrompt.SetActive(true);
+        AudioController.Instance.PlaySound2D("crunch_blip");
+
         yield return new WaitUntil(() => !PlayerStateManager.Instance.ShoesUntied);
+        shoelacePrompt.SetActive(false);
         yield return new WaitForSeconds(0.3f);
         yield return PlayMessage("christ... anyways...");
         yield return new WaitForSeconds(0.3f);
@@ -87,6 +96,7 @@ public class TutorialSequencer : MonoBehaviour
         TrainProgressManager.Instance.Paused = false;
         HeartMachine.Instance.Paused = false;
         PlayerStateManager.Instance.enabled = true;
+        PlayerStateManager.Instance.OnlyShoes = false;
     }
 
     private IEnumerator PlayMessage(string message, bool clear = true, bool endAbrupt = false)
