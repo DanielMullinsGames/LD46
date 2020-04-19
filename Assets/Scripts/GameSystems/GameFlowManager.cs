@@ -45,7 +45,7 @@ public class GameFlowManager : Singleton<GameFlowManager>
         stationObj.gameObject.SetActive(true);
         yield return new WaitForSeconds(10f);
 
-        //stop sound
+        AudioController.Instance.PlaySound2D("success");
         TrainProgressManager.Instance.GetComponent<AudioSource>().enabled = false;
         VelocityBasedEffects.Instance.Freeze();
         yield return new WaitForSeconds(2.5f);

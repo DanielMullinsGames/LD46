@@ -21,6 +21,8 @@ public class SequentialText : MonoBehaviour
     [SerializeField]
     private Color defaultColor = Color.black;
 
+    public float voicePitch = 1f;
+
     void Awake()
     {
         textMesh = GetComponent<TMPro.TextMeshProUGUI>();
@@ -146,7 +148,7 @@ public class SequentialText : MonoBehaviour
 
     private void PlaySound()
     {
-        AudioController.Instance.PlaySound2D("dialogue_sound", volume: 0.5f, randomization: new AudioParams.Randomization());
+        AudioController.Instance.PlaySound2D("dialogue_sound", volume: 0.5f, pitch: new AudioParams.Pitch(voicePitch), randomization: new AudioParams.Randomization());
     }
 
     public static string ColorString(string str, Color c)
