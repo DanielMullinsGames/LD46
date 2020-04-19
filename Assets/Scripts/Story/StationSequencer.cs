@@ -45,6 +45,10 @@ public class StationSequencer : MonoBehaviour
     private List<string> partingLines;
 
 
+    public bool gunshotEvent;
+    public SequentialText redText;
+
+
     private void Start()
     {
         StartCoroutine(StationSequence());
@@ -56,7 +60,7 @@ public class StationSequencer : MonoBehaviour
         yield return new WaitForSeconds(1f);
         ui.SetActive(true);
 
-        if (RunState.coal < 5)
+        if (RunState.coal < 5 && noCoalLines != null && noCoalLines.Count > 0)
         {
             foreach (string line in noCoalLines)
             {
@@ -67,7 +71,7 @@ public class StationSequencer : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
 
-        if (RunState.bullets < 1)
+        if (RunState.bullets < 1 && noBulletsLines != null && noBulletsLines.Count > 0)
         {
             foreach (string line in noBulletsLines)
             {
@@ -80,11 +84,29 @@ public class StationSequencer : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        foreach (string line in mainLines)
+        if (RunState.lostHeart && deadHeartLines !=null && deadHeartLines.Count > 0)
         {
-            yield return PlayMessage(line);
+
         }
-        yield return new WaitForSeconds(0.1f);
+        else
+        {
+            foreach (string line in mainLines)
+            {
+                yield return PlayMessage(line);
+            }
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        #region GunshotEvent
+        if (gunshotEvent)
+        {
+            yield return PlayMessage("i said... get outta the-", endAbrupt: true);
+            AudioController.Instance.PlaySound2D("gunshot_2");
+            yield return new WaitForSeconds(1f);
+            redText.PlayMessage("take these bullets... and RUN!");
+            yield return new WaitUntil(() => !redText.PlayingMessage);
+        }
+        #endregion
 
         int coalGain = baseCoalGain;
         if (replenishCoal)
