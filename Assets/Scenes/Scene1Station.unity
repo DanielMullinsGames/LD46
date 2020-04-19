@@ -169,7 +169,12 @@ MonoBehaviour:
   baseCoalGain: 25
   replenishCoal: 1
   baseBulletsGain: 0
-  deadHeartLines: []
+  deadHeartLines:
+  - y- you what?
+  - you l- let it die?
+  - y- you...
+  - failure here is not an option so...
+  - you are putting me in a very bad place... but it is still an honor
   noCoalLines:
   - h- how did you get so low on coal? from vancouver?
   - '...take some of ours. but you''ll pay later'
@@ -184,6 +189,8 @@ MonoBehaviour:
   - steep inclines... we have some extra coal for you
   partingLines:
   - oh llord... what an honor
+  gunshotEvent: 0
+  redText: {fileID: 0}
 --- !u!114 &101508403 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5437201899792805939, guid: a629f7c280dec714e846146bbdfe3b8b,

@@ -48,6 +48,8 @@ public class StationSequencer : MonoBehaviour
     public bool gunshotEvent;
     public SequentialText redText;
 
+    public bool noGunshotNewHeart;
+
 
     private void Start()
     {
@@ -86,7 +88,18 @@ public class StationSequencer : MonoBehaviour
 
         if (RunState.lostHeart && deadHeartLines !=null && deadHeartLines.Count > 0)
         {
-
+            foreach (string line in deadHeartLines)
+            {
+                yield return PlayMessage(line);
+            }
+            yield return new WaitForSeconds(0.1f);
+            if (!noGunshotNewHeart)
+            {
+                AudioController.Instance.PlaySound2D("gunshot_2");
+            }
+            yield return new WaitForSeconds(1f);
+            RunState.lostHeart = false;
+            RunState.harvestedHeart = true;
         }
         else
         {

@@ -26,6 +26,9 @@ public class HeartMachine : Singleton<HeartMachine>
     [SerializeField]
     private Sprite deadHeart;
 
+    [SerializeField]
+    private GameObject corpse;
+
     private float beepTimer;
 
     private float deathTimer;
@@ -41,6 +44,11 @@ public class HeartMachine : Singleton<HeartMachine>
             Vitality = 0f;
             Die();
             TakeHeart();
+        }
+
+        if (RunState.harvestedHeart)
+        {
+            corpse.SetActive(true);
         }
     }
 

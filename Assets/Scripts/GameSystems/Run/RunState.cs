@@ -10,11 +10,13 @@ public class RunState
     public static int bullets = STARTING_BULLETS;
     public static int coal = STARTING_COAL;
     public static bool lostHeart = false;
+    public static bool harvestedHeart = false;
 
     public static void Reset()
     {
         bullets = STARTING_BULLETS;
         coal = STARTING_COAL;
         lostHeart = false;
+        harvestedHeart = false;
     }
 }

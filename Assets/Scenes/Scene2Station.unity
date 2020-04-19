@@ -169,7 +169,14 @@ MonoBehaviour:
   baseCoalGain: 40
   replenishCoal: 1
   baseBulletsGain: 2
-  deadHeartLines: []
+  deadHeartLines:
+  - 'welcome to reddin''. population: not a heck of a lot'
+  - we got our payment from HQ so we have your coal
+  - pardon? come again? yuh lost the heart?
+  - you really need to be more careful pal
+  - lucky we got a guy here who just passed... real peaceful
+  - his heart's yours... but you better consider this your last chance to get a new
+    one
   noCoalLines:
   - nearly out of coal, huh?
   - s'ppose that's fair consid'rin the hills
@@ -187,6 +194,7 @@ MonoBehaviour:
   - stay safe partner
   gunshotEvent: 0
   redText: {fileID: 0}
+  noGunshotNewHeart: 1
 --- !u!114 &101508403 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5437201899792805939, guid: a629f7c280dec714e846146bbdfe3b8b,
