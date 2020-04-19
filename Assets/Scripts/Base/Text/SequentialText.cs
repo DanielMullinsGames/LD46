@@ -16,7 +16,7 @@ public class SequentialText : MonoBehaviour
     private Color currentColor = Color.black;
     private bool skipToEnd;
 
-    private const float DEFAULT_FREQUENCY = 4f;
+    private const float DEFAULT_FREQUENCY = 10f;
 
     [SerializeField]
     private Color defaultColor = Color.black;
@@ -132,10 +132,16 @@ public class SequentialText : MonoBehaviour
 
             if (index > 0 && (message[index-1] == '.' || message[index-1] == '?' || message[index-1] == '!'))
             {
-                yield return new WaitForSeconds(0.4f);
+                yield return new WaitForSeconds(Skipping() ? 0.1f : 0.45f);
             }
 
             float adjustedFrequency = Mathf.Clamp(characterFrequency * 0.01f, 0.01f, 0.2f);
+
+            if (Skipping())
+            {
+                adjustedFrequency *= 0.2f;
+            }
+
             float waitTimer = 0f;
             while (!skipToEnd && waitTimer < adjustedFrequency)
             {
@@ -143,12 +149,18 @@ public class SequentialText : MonoBehaviour
                 yield return new WaitForEndOfFrame();
             }
         }
+        yield return new WaitForSeconds(0.15f);
         PlayingMessage = false;
+    }
+
+    private bool Skipping()
+    {
+        return Input.GetButton("PlayerLeft") || Input.GetButton("PlayerRight") || Input.GetButton("PlayerUp") || Input.GetButton("PlayerDown");
     }
 
     private void PlaySound()
     {
-        AudioController.Instance.PlaySound2D("dialogue_sound", volume: 0.5f, pitch: new AudioParams.Pitch(voicePitch), randomization: new AudioParams.Randomization());
+        AudioController.Instance.PlaySound2D("dialogue_sound", volume: 0.5f, pitch: new AudioParams.Pitch(voicePitch), randomization: new AudioParams.Randomization(), repetition: new AudioParams.Repetition(0.05f, "dialogue"));
     }
 
     public static string ColorString(string str, Color c)

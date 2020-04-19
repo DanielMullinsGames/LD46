@@ -37,6 +37,8 @@ public class TutorialSequencer : MonoBehaviour
     [SerializeField]
     private List<GameObject> controlsPrompts = new List<GameObject>();
 
+    public GameObject textSpeedPrompt;
+
     private void Start()
     {
         StartCoroutine(Tutorial());
@@ -77,9 +79,11 @@ public class TutorialSequencer : MonoBehaviour
         AudioController.Instance.PlaySound2D("crunch_blip");
         yield return new WaitForSeconds(1f);
 
+        textSpeedPrompt.SetActive(true);
         yield return PlayMessage("you didn't forget. did you now. old timer?");
         yield return PlayMessage("this is the most important haul in your whole long-ass life");
         yield return new WaitForSeconds(0.25f);
+        textSpeedPrompt.SetActive(false);
 
         ShoelacesStation.Instance.Untie();
         PlayerStateManager.Instance.GetCurrentPlayerTransform().Find("laces").GetComponent<SpriteRenderer>().enabled = true;
@@ -132,7 +136,7 @@ public class TutorialSequencer : MonoBehaviour
         AudioController.Instance.PlaySound2D("crunch_blip");
         yield return new WaitForSeconds(1f);
 
-        yield return PlayMessage("your first stop is seattle. once you get not far out 'a vancouver's cell tower i'm gonna cut ou-", endAbrupt: true);
+        yield return PlayMessage("your first stop is seattle. once you get not far out 'a vancouver's cell tower my reception is gonna get bad and i might cut out-", endAbrupt: true);
         AudioController.Instance.PlaySound2D("crunch_blip");
         finalBlockers.ForEach(x => x.SetActive(false));
         trainAudio.enabled = true;
