@@ -166,7 +166,7 @@ MonoBehaviour:
   text: {fileID: 101508403}
   nextScene: Scene3
   ui: {fileID: 7958692622279912516}
-  baseCoalGain: 50
+  baseCoalGain: 40
   replenishCoal: 1
   baseBulletsGain: 2
   deadHeartLines: []
@@ -185,6 +185,8 @@ MonoBehaviour:
   - be sparin' with that coal. no guarantees they'll have any. what with the CHOPPERS
     buzzin' around down there
   - stay safe partner
+  gunshotEvent: 0
+  redText: {fileID: 0}
 --- !u!114 &101508403 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5437201899792805939, guid: a629f7c280dec714e846146bbdfe3b8b,
