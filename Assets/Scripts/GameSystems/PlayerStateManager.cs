@@ -228,10 +228,24 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
         switch (state)
         {
             case PlayerState.ShovelTake:
-                AudioController.Instance.PlaySound2D("crunch_short_2");
+                if (RunState.coal > 0)
+                {
+                    AudioController.Instance.PlaySound2D("crunch_short_2");
+                }
+                else
+                {
+                    AudioController.Instance.PlaySound2D("crunch_blip");
+                }
                 break;
             case PlayerState.ShovelPlace:
-                AudioController.Instance.PlaySound2D("crunch_short_2", pitch: new AudioParams.Pitch(1.25f));
+                if (RunState.coal > 0)
+                {
+                    AudioController.Instance.PlaySound2D("crunch_short_2", pitch: new AudioParams.Pitch(1.25f));
+                }
+                else
+                {
+                    AudioController.Instance.PlaySound2D("crunch_blip");
+                }
                 break;
             case PlayerState.AimingGun:
             case PlayerState.TyingShoes:
