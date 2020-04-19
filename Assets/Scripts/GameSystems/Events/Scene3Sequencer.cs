@@ -16,12 +16,12 @@ public class Scene3Sequencer : MonoBehaviour
 
     private void Update()
     {
-        if (TrainProgressManager.Instance.DestinationProgress > 0.3f && !firstBulletsEvent)
+        if (TrainProgressManager.Instance.DestinationProgress > 0.25f && !firstBulletsEvent)
         {
             firstBulletsEvent = true;
             StartCoroutine(FirstBulletsEventSequence());
         }
-        if (TrainProgressManager.Instance.DestinationProgress > 0.65f && !secondBulletsEvent)
+        if (TrainProgressManager.Instance.DestinationProgress > 0.6f && !secondBulletsEvent)
         {
             secondBulletsEvent = true;
             StartCoroutine(SecondBulletsEventSequence());
@@ -43,7 +43,7 @@ public class Scene3Sequencer : MonoBehaviour
     private IEnumerator FirstBulletsEventSequence()
     {
         yield return ShootHoles(firstBulletCovers);
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.6f);
         RaiderSpawner.Instance.SpawnRaider();
     }
 
@@ -54,15 +54,24 @@ public class Scene3Sequencer : MonoBehaviour
         AudioController.Instance.PlaySound2D("gunshot_2");
         yield return new WaitForSeconds(0.05f);
         HeartMachine.Instance.Vitality = 0f;
+        HeartMachine.Instance.vitalityDecayRate *= 1.25f;
         bloodParticles.gameObject.SetActive(true);
         AudioController.Instance.PlaySound2D("crunch_blip");
 
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(1f);
         RaiderSpawner.Instance.SpawnRaider();
     }
 
     private IEnumerator ShootHoles(List<SpriteRenderer> covers)
     {
+        AudioController.Instance.PlaySound2D("hornblast");
+        yield return new WaitForSeconds(0.5f);
+        TrainProgressManager.Instance.Anim.Play("big_shake", 0, 0f);
+        PlayerStateManager.Instance.enabled = false;
+        yield return new WaitForSeconds(1f);
+        PlayerStateManager.Instance.enabled = true;
+        yield return new WaitForSeconds(1.5f);
+
         foreach (SpriteRenderer s in covers)
         {
             s.enabled = false;

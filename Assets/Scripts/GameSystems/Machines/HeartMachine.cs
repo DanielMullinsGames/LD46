@@ -8,8 +8,7 @@ public class HeartMachine : Singleton<HeartMachine>
     public bool AudioPaused { get; set; }
     public float Vitality { get;  set; }
 
-    [SerializeField]
-    private float vitalityDecayRate;
+    public float vitalityDecayRate;
 
     [SerializeField]
     private float deathTime = 5f;

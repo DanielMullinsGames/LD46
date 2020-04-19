@@ -108,6 +108,10 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
                 }
                 break;
             case PlayerState.PumpUp:
+                if (Input.GetButtonDown("PlayerUp"))
+                {
+                    SwitchToState(PlayerState.AimingGun, 1f);
+                }
                 if (Input.GetButtonDown("PlayerDown"))
                 {
                     SwitchToState(PlayerState.PumpDown, 0f);
@@ -135,6 +139,10 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
                 if (Input.GetButtonDown("PlayerRight"))
                 {
                     SwitchToState(PlayerState.ShovelPlace, 1f);
+                }
+                if (Input.GetButtonDown("PlayerUp"))
+                {
+                    SwitchToState(PlayerState.AimingGun, 1f);
                 }
                 if (ShoesUntied && Input.GetButtonDown("PlayerDown"))
                 {
