@@ -120,6 +120,30 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!212 &82175096 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7672619621362155616, guid: 87e9f9e623a75ae43851c2553ea39227,
+    type: 3}
+  m_PrefabInstance: {fileID: 1284228967161731253}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &369599463 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3336181906954250176, guid: 87e9f9e623a75ae43851c2553ea39227,
+    type: 3}
+  m_PrefabInstance: {fileID: 1284228967161731253}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &372187325 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5172070780951881516, guid: 87e9f9e623a75ae43851c2553ea39227,
+    type: 3}
+  m_PrefabInstance: {fileID: 1284228967161731253}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &400954727 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8515886101996486911, guid: 87e9f9e623a75ae43851c2553ea39227,
+    type: 3}
+  m_PrefabInstance: {fileID: 1284228967161731253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &413583105 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7396429598762221720, guid: dd763e3339dfc61448a51cdf01ff1949,
@@ -132,11 +156,81 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7459e5b82c4d9a9458dda7534f91eb63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &783905180
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 783905182}
+  - component: {fileID: 783905181}
+  m_Layer: 0
+  m_Name: SCENE 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &783905181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783905180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee8ad9898192c6646946e393cdfc8936, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstBulletCovers:
+  - {fileID: 831544143}
+  - {fileID: 1886227937}
+  - {fileID: 82175096}
+  - {fileID: 860296797}
+  secondBulletCovers:
+  - {fileID: 372187325}
+  - {fileID: 400954727}
+  - {fileID: 369599463}
+--- !u!4 &783905182
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783905180}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &831544143 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8933521840216578060, guid: 87e9f9e623a75ae43851c2553ea39227,
+    type: 3}
+  m_PrefabInstance: {fileID: 1284228967161731253}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &860296797 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6449864692681173373, guid: 87e9f9e623a75ae43851c2553ea39227,
+    type: 3}
+  m_PrefabInstance: {fileID: 1284228967161731253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &1789857944 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 7396429599063774977, guid: dd763e3339dfc61448a51cdf01ff1949,
     type: 3}
   m_PrefabInstance: {fileID: 7396429598366271385}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1886227937 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5917937166193358275, guid: 87e9f9e623a75ae43851c2553ea39227,
+    type: 3}
+  m_PrefabInstance: {fileID: 1284228967161731253}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1284228967161731253
 PrefabInstance:
@@ -248,12 +342,12 @@ PrefabInstance:
     - target: {fileID: 1284228969170859856, guid: 87e9f9e623a75ae43851c2553ea39227,
         type: 3}
       propertyPath: baseSpeedModifier
-      value: 1.1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1284228969170859856, guid: 87e9f9e623a75ae43851c2553ea39227,
         type: 3}
       propertyPath: baseVelocityDecay
-      value: 3.3
+      value: 3.25
       objectReference: {fileID: 0}
     - target: {fileID: 1284228969170859859, guid: 87e9f9e623a75ae43851c2553ea39227,
         type: 3}

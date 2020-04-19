@@ -63,17 +63,21 @@ public class RaiderSpawner : Singleton<RaiderSpawner>
         spawnTimer -= 2f;
     }
 
-    private void SpawnRaider()
+    public void SpawnRaider()
     {
-        var raiderObj = Instantiate(raiderPrefab);
-        CurrentRaider = raiderObj.GetComponent<Raider>();
+        if (CurrentRaider == null)
+        {
+            spawnTimer = 0f;
+            var raiderObj = Instantiate(raiderPrefab);
+            CurrentRaider = raiderObj.GetComponent<Raider>();
 
-        bool leftWindow = Random.value > 0.5f;
-        float xMin = leftWindow ? leftWindowMin.localPosition.x : rightWindowMin.localPosition.x;
-        float xMax = leftWindow ? leftWindowMax.localPosition.x : rightWindowMax.localPosition.x;
-        float x = xMin + ((xMax - xMin) * Random.value);
-        float y = leftWindowMin.localPosition.y;
-        CurrentRaider.transform.parent = transform;
-        CurrentRaider.transform.localPosition = new Vector2(x, y);
+            bool leftWindow = Random.value > 0.5f;
+            float xMin = leftWindow ? leftWindowMin.localPosition.x : rightWindowMin.localPosition.x;
+            float xMax = leftWindow ? leftWindowMax.localPosition.x : rightWindowMax.localPosition.x;
+            float x = xMin + ((xMax - xMin) * Random.value);
+            float y = leftWindowMin.localPosition.y;
+            CurrentRaider.transform.parent = transform;
+            CurrentRaider.transform.localPosition = new Vector2(x, y);
+        }
     }
 }

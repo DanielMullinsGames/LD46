@@ -136,6 +136,10 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
                 {
                     SwitchToState(PlayerState.ShovelPlace, 1f);
                 }
+                if (ShoesUntied && Input.GetButtonDown("PlayerDown"))
+                {
+                    SwitchToState(PlayerState.TyingShoes, 0f);
+                }
                 break;
             case PlayerState.ShovelPlace:
                 if (Input.GetButtonDown("PlayerLeft"))

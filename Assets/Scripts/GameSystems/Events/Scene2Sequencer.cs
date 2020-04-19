@@ -45,7 +45,7 @@ public class Scene2Sequencer : MonoBehaviour
         }
     }
 
-    private void SetIncline(float magnitude)
+    public static void SetIncline(float magnitude)
     {
         TrainProgressManager.Instance.VelocityDecayModifier = magnitude + 1f;
         Camera.main.transform.eulerAngles = new Vector3(0f, 0f, -magnitude);
