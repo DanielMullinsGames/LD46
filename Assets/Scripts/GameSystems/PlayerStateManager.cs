@@ -12,6 +12,7 @@ public enum PlayerState
     PumpDown,
     Fallen,
     TyingShoes,
+    AimingGun,
     NUM_STATES,
 }
 
