@@ -8,6 +8,8 @@ public class HeartMachine : Singleton<HeartMachine>
     public bool AudioPaused { get; set; }
     public float Vitality { get;  set; }
 
+    public bool Dead { get; private set; }
+
     public float vitalityDecayRate;
 
     [SerializeField]
@@ -15,6 +17,12 @@ public class HeartMachine : Singleton<HeartMachine>
 
     [SerializeField]
     private AudioSource flatlineSource;
+
+    [SerializeField]
+    private AnimatingSprite pumpingAnim;
+
+    [SerializeField]
+    private Sprite deadHeart;
 
     private float beepTimer;
 
@@ -69,14 +77,23 @@ public class HeartMachine : Singleton<HeartMachine>
 
     public void Boost()
     {
-        Vitality = Mathf.Clamp(Vitality + 0.1f, 0f, 1f);
+        if (!Dead)
+        {
+            Vitality = Mathf.Clamp(Vitality + 0.1f, 0f, 1f);
+        }
     }
 
     private void Die()
     {
-        AudioController.Instance.PlaySound2D("blast");
+        AudioController.Instance.PlaySound2D("crunch_blip");
         flatlineSource.enabled = false;
         enabled = false;
+
+        pumpingAnim.enabled = false;
+        pumpingAnim.GetComponent<SpriteRenderer>().sprite = deadHeart;
+        RunState.lostHeart = true;
+
+        Dead = true;
     }
 
     private void OnStateChanged(PlayerState state)

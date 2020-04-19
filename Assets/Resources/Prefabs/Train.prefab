@@ -2313,6 +2313,9 @@ MonoBehaviour:
   vitalityDecayRate: 0.05
   deathTime: 5
   flatlineSource: {fileID: 1284228968929110437}
+  pumpingAnim: {fileID: 1284228968935637368}
+  deadHeart: {fileID: 5973981231577149544, guid: 30625d1faa423c44eba636637e682e8a,
+    type: 3}
 --- !u!212 &1284228969011765140
 SpriteRenderer:
   m_ObjectHideFlags: 0
