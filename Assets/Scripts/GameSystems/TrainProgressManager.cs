@@ -68,9 +68,9 @@ public class TrainProgressManager : Singleton<TrainProgressManager>
 #endif
     }
 
-    public void AddFuel()
+    public void AddFuel(float value = 25f)
     {
-        Velocity += 25f;
+        Velocity += value;
         Velocity = Mathf.Min(Velocity, MAX_VELOCITY);
 
         trainAnim.Play("boost", 0, 0f);

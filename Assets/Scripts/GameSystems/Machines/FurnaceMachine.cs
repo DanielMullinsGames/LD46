@@ -11,6 +11,9 @@ public class FurnaceMachine : MonoBehaviour
     private GameObject furnaceFuelObj;
 
     [SerializeField]
+    private GameObject heartFuelObj;
+
+    [SerializeField]
     private List<Sprite> pileSprites;
 
     [SerializeField]
@@ -26,6 +29,12 @@ public class FurnaceMachine : MonoBehaviour
     {
         switch(state)
         {
+            case PlayerState.ShovelHeartPlace:
+                var heartFuel = Instantiate(heartFuelObj);
+                heartFuel.transform.position = furnaceFuelObj.transform.position;
+                heartFuel.SetActive(true);
+                TrainProgressManager.Instance.AddFuel(100f);
+                break;
             case PlayerState.ShovelPlace:
                 if (RunState.coal > 0)
                 {

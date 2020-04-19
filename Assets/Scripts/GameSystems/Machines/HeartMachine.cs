@@ -10,6 +10,8 @@ public class HeartMachine : Singleton<HeartMachine>
 
     public bool Dead { get; private set; }
 
+    public bool HasHeart { get; set; }
+
     public float vitalityDecayRate;
 
     [SerializeField]
@@ -30,6 +32,7 @@ public class HeartMachine : Singleton<HeartMachine>
 
     private void Start()
     {
+        HasHeart = true;
         Vitality = 1f;
         PlayerStateManager.Instance.StateChanged += OnStateChanged;
     }
@@ -73,6 +76,12 @@ public class HeartMachine : Singleton<HeartMachine>
             Boost();
         }
 #endif
+    }
+
+    public void TakeHeart()
+    {
+        pumpingAnim.gameObject.SetActive(false);
+        HasHeart = false;
     }
 
     public void Boost()

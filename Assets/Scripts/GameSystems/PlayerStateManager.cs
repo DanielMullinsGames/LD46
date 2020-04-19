@@ -13,6 +13,8 @@ public enum PlayerState
     Fallen,
     TyingShoes,
     AimingGun,
+    ShovelHeartTake,
+    ShovelHeartPlace,
     NUM_STATES,
 }
 
@@ -92,7 +94,15 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
             case PlayerState.Idle:
                 if (Input.GetButtonDown("PlayerLeft") && !OnlyShoes)
                 {
-                    SwitchToState(PlayerState.PumpUp, -1f);
+                    if (HeartMachine.Instance.Dead && HeartMachine.Instance.HasHeart)
+                    {
+                        SwitchToState(PlayerState.ShovelHeartTake, -1f);
+                        HeartMachine.Instance.TakeHeart();
+                    }
+                    else
+                    {
+                        SwitchToState(PlayerState.PumpUp, -1f);
+                    }
                 }
                 if (Input.GetButtonDown("PlayerRight") && !OnlyShoes)
                 {
@@ -149,6 +159,13 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
                     SwitchToState(PlayerState.TyingShoes, 0f);
                 }
                 break;
+            case PlayerState.ShovelHeartTake:
+                if (Input.GetButtonDown("PlayerRight") || Input.GetButtonDown("PlayerUp") || Input.GetButtonDown("PlayerDown"))
+                {
+                    SwitchToState(PlayerState.ShovelHeartPlace, 1f);
+                }
+                break;
+            case PlayerState.ShovelHeartPlace:
             case PlayerState.ShovelPlace:
                 if (Input.GetButtonDown("PlayerLeft"))
                 {
@@ -239,6 +256,9 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
     {
         switch (state)
         {
+            case PlayerState.ShovelHeartTake:
+                AudioController.Instance.PlaySound2D("crunch_short_2");
+                break;
             case PlayerState.ShovelTake:
                 if (RunState.coal > 0)
                 {
@@ -248,6 +268,9 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
                 {
                     AudioController.Instance.PlaySound2D("crunch_blip");
                 }
+                break;
+            case PlayerState.ShovelHeartPlace:
+                AudioController.Instance.PlaySound2D("crunch_short_2");
                 break;
             case PlayerState.ShovelPlace:
                 if (RunState.coal > 0)
