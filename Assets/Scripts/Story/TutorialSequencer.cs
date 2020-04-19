@@ -20,6 +20,9 @@ public class TutorialSequencer : MonoBehaviour
     private GameObject ammoUIBlocker;
 
     [SerializeField]
+    private GameObject coalUIBlocker;
+
+    [SerializeField]
     private List<GameObject> finalBlockers;
 
     [SerializeField]
@@ -107,6 +110,12 @@ public class TutorialSequencer : MonoBehaviour
         yield return PlayMessage("you run too slow and those RAILWORKERS are gonna latch right onto you");
         yield return PlayMessage("they don't know your freight ain't worth shit to 'em. save for the clothes off your back and a bit of protein");
         yield return PlayMessage("hey and you probably know this too. but don't run too fast neither");
+
+        yield return new WaitForSeconds(0.3f);
+        coalUIBlocker.SetActive(false);
+        AudioController.Instance.PlaySound2D("crunch_blip");
+        yield return new WaitForSeconds(1f);
+
         yield return PlayMessage("run too fast and you'll waste coal. you run out... well i did mention the RAILWORKERS...");
 
         yield return new WaitForSeconds(0.3f);

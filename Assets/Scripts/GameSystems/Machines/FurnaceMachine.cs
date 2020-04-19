@@ -24,6 +24,8 @@ public class FurnaceMachine : MonoBehaviour
                 fuel.transform.position = furnaceFuelObj.transform.position;
                 fuel.SetActive(true);
                 TrainProgressManager.Instance.AddFuel();
+                RunState.coal--;
+                CoalDisplay.Instance.UpdateDisplay();
                 break;
         }
     }
