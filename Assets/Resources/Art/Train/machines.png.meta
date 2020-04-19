@@ -26,6 +26,24 @@ TextureImporter:
   - first:
       213: -2518500475171988858
     second: machines_7
+  - first:
+      213: -1924063227954759873
+    second: machines_8
+  - first:
+      213: 5973981231577149544
+    second: machines_9
+  - first:
+      213: -8137423164329995978
+    second: machines_10
+  - first:
+      213: -7782109275272205777
+    second: machines_11
+  - first:
+      213: -8895548684233876697
+    second: machines_12
+  - first:
+      213: 3644351354572427177
+    second: machines_13
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -273,6 +291,132 @@ TextureImporter:
       bones: []
       spriteID: b9f569630f026ea41bbac9f2f87edc8e
       internalID: -2518500475171988858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: machines_8
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 2
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aaec9bc3e1443f4eb3d44e3e8010230
+      internalID: -1924063227954759873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: machines_9
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 2
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46040913122870446b0b25f3a05753ad
+      internalID: 5973981231577149544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: machines_10
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 2
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91ccc5a8e44656244a7ae7f47617256b
+      internalID: -8137423164329995978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: machines_11
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 18
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cbe1b8dff69bd748bde079976280f08
+      internalID: -7782109275272205777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: machines_12
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 18
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38bfea1fa2095c641b11498aac46176b
+      internalID: -8895548684233876697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: machines_13
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 18
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e78130f1482e4f8409bf1d0aefedf830
+      internalID: 3644351354572427177
       vertices: []
       indices: 
       edges: []
