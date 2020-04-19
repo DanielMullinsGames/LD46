@@ -12,6 +12,9 @@ public class Scene4Sequencer : MonoBehaviour
     private bool declineEnded;
 
     private bool trainEventStarted;
+    private bool trainEventEnded;
+
+    public GameObject trainAnim;
 
     private void Update()
     {
@@ -35,7 +38,7 @@ public class Scene4Sequencer : MonoBehaviour
             secondInclineEnded = true;
             Scene2Sequencer.SetIncline(0f);
         }
-        if (TrainProgressManager.Instance.DestinationProgress > 0.5f && !trainEventStarted)
+        if (TrainProgressManager.Instance.DestinationProgress > 0.525f && !trainEventStarted)
         {
             trainEventStarted = true;
             StartCoroutine(TrainEvent());
@@ -45,7 +48,7 @@ public class Scene4Sequencer : MonoBehaviour
             declineStarted = true;
             Scene2Sequencer.SetIncline(-5f);
         }
-        if (TrainProgressManager.Instance.DestinationProgress > 0.85f && !declineEnded)
+        if (TrainProgressManager.Instance.DestinationProgress > 0.9f && !declineEnded)
         {
             declineEnded = true;
             Scene2Sequencer.SetIncline(0f);
@@ -54,6 +57,27 @@ public class Scene4Sequencer : MonoBehaviour
 
     private IEnumerator TrainEvent()
     {
-        yield break;
+        trainAnim.gameObject.SetActive(true);
+        AudioController.Instance.PlaySound2D("hornblast");
+        yield return new WaitForSeconds(0.5f);
+        TrainProgressManager.Instance.Anim.Play("big_shake", 0, 0f);
+        PlayerStateManager.Instance.enabled = false;
+        yield return new WaitForSeconds(1f);
+        PlayerStateManager.Instance.enabled = true;
+        yield return new WaitForSeconds(2f);
+
+        while (TrainProgressManager.Instance.DestinationProgress < 0.8f)
+        {
+            if (RaiderSpawner.Instance.CurrentRaider == null)
+            {
+                yield return new WaitForSeconds(1f);
+                if (RaiderSpawner.Instance.CurrentRaider == null)
+                {
+                    RaiderSpawner.Instance.SpawnRaider();
+                }
+            }
+            yield return new WaitForEndOfFrame();
+        }
+        trainAnim.GetComponent<Animator>().SetTrigger("leave");
     }
 }
