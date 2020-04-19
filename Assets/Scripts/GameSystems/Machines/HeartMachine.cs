@@ -75,6 +75,10 @@ public class HeartMachine : Singleton<HeartMachine>
         {
             Boost();
         }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Vitality = 0f;
+        }
 #endif
     }
 
