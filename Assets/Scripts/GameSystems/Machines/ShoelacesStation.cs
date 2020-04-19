@@ -19,6 +19,17 @@ public class ShoelacesStation : Singleton<ShoelacesStation>
         PlayerStateManager.Instance.StateChanged += OnStateChanged;
     }
 
+    public void Untie()
+    {
+        UntieChance = 0f;
+        PlayerStateManager.Instance.ShoesUntied = true;
+        var untieAnim = Instantiate(untieAnimationObject);
+        untieAnim.SetActive(true);
+        untieAnim.transform.position = untieAnimationObject.transform.position;
+        Destroy(untieAnim, 1f);
+        AudioController.Instance.PlaySound2D("shoes_untied");
+    }
+
     private void OnStateChanged(PlayerState state)
     {
         switch (state)
@@ -28,13 +39,7 @@ public class ShoelacesStation : Singleton<ShoelacesStation>
                 {
                     if (Random.value < UntieChance)
                     {
-                        UntieChance = 0f;
-                        PlayerStateManager.Instance.ShoesUntied = true;
-                        var untieAnim = Instantiate(untieAnimationObject);
-                        untieAnim.SetActive(true);
-                        untieAnim.transform.position = untieAnimationObject.transform.position;
-                        Destroy(untieAnim, 1f);
-                        AudioController.Instance.PlaySound2D("shoes_untied");
+                        Untie();
                     }
 
                     UntieChance += 0.1f;

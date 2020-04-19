@@ -21,6 +21,8 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
     public System.Action<PlayerState> StateChanged;
     public PlayerState CurrentState { get; private set; }
 
+    public bool OnlyShoes { get; set; }
+
     public bool ShoesUntied { get; set; }
     private int standUpProgress = 0;
     private float lastStandupInput;
@@ -88,15 +90,15 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
                 }
                 break;
             case PlayerState.Idle:
-                if (Input.GetButtonDown("PlayerLeft"))
+                if (Input.GetButtonDown("PlayerLeft") && !OnlyShoes)
                 {
                     SwitchToState(PlayerState.PumpUp, -1f);
                 }
-                if (Input.GetButtonDown("PlayerRight"))
+                if (Input.GetButtonDown("PlayerRight") && !OnlyShoes)
                 {
                     SwitchToState(PlayerState.ShovelTake, 1f);
                 }
-                if (Input.GetButtonDown("PlayerUp"))
+                if (Input.GetButtonDown("PlayerUp") && !OnlyShoes)
                 {
                     SwitchToState(PlayerState.AimingGun, 1f);
                 }

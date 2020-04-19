@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TrainProgressManager : Singleton<TrainProgressManager>
 {
+    public bool Paused { get; set; }
     public float Velocity { get; private set; }
     public float NormalizedVelocity { get { return (Velocity - MIN_VELOCITY) / (MAX_VELOCITY - MIN_VELOCITY); } }
 
@@ -16,6 +17,9 @@ public class TrainProgressManager : Singleton<TrainProgressManager>
     [SerializeField]
     private Animator trainAnim;
 
+    [SerializeField]
+    private float baseVelocityDecay = 3f;
+
     private const float MIN_VELOCITY = 25f;
     private const float MAX_VELOCITY = 125f;
 
@@ -26,14 +30,17 @@ public class TrainProgressManager : Singleton<TrainProgressManager>
 
     private void Update()
     {
-        float velocityDecay = 3f; //TODO: based on properties of fuel.
-        if (Velocity > 100f)
+        if (!Paused)
         {
-            velocityDecay *= 3f;
-        }
+            float velocityDecay = baseVelocityDecay;
+            if (Velocity > 100f)
+            {
+                velocityDecay *= 3f;
+            }
 
-        Velocity = Mathf.Max(Velocity - (Time.deltaTime * velocityDecay), 0f);
-        DestinationProgress += Time.deltaTime * Velocity * 0.0001f * baseSpeedModifier;
+            Velocity = Mathf.Max(Velocity - (Time.deltaTime * velocityDecay), 0f);
+            DestinationProgress += Time.deltaTime * Velocity * 0.0001f * baseSpeedModifier;
+        }
 
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.C))

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HeartMachine : Singleton<HeartMachine>
 {
+    public bool Paused { get; set; }
     public float Vitality { get; private set; }
 
     [SerializeField]
@@ -27,7 +28,10 @@ public class HeartMachine : Singleton<HeartMachine>
 
     void Update()
     {
-        Vitality = Mathf.Clamp(Vitality - (vitalityDecayRate * Time.deltaTime), 0f, 1f);
+        if (!Paused)
+        {
+            Vitality = Mathf.Clamp(Vitality - (vitalityDecayRate * Time.deltaTime), 0f, 1f);
+        }
 
         if (Vitality <= 0f)
         {
