@@ -36,6 +36,11 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
 
     private bool switchingState;
 
+    public Transform GetCurrentPlayerTransform()
+    {
+        return GetPlayerObject(CurrentState).transform;
+    }
+
     public void SwitchToState(PlayerState state, float shakeMagnitude)
     {
         if (!switchingState)
@@ -103,7 +108,7 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
                 }
                 break;
             case PlayerState.PumpDown:
-                if (Input.GetButtonDown("PlayerUp"))
+                if (Input.GetButtonDown("PlayerUp") || Input.GetButtonDown("PlayerDown"))
                 {
                     SwitchToState(PlayerState.PumpUp, 0f);
                 }
