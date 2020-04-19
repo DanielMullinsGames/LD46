@@ -35,6 +35,13 @@ public class HeartMachine : Singleton<HeartMachine>
         HasHeart = true;
         Vitality = 1f;
         PlayerStateManager.Instance.StateChanged += OnStateChanged;
+
+        if (RunState.lostHeart)
+        {
+            Vitality = 0f;
+            Die();
+            TakeHeart();
+        }
     }
 
     void Update()
