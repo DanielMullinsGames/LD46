@@ -47,6 +47,9 @@ TagManager:
   - name: Machines
     uniqueID: 843837407
     locked: 0
+  - name: Player
+    uniqueID: 4199153845
+    locked: 0
   - name: UI
     uniqueID: 1066806871
     locked: 0
