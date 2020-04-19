@@ -52,7 +52,10 @@ public class Scene3Sequencer : MonoBehaviour
         yield return ShootHoles(secondBulletCovers);
 
         AudioController.Instance.PlaySound2D("gunshot_2");
+        yield return new WaitForSeconds(0.05f);
         HeartMachine.Instance.Vitality = 0f;
+        bloodParticles.gameObject.SetActive(true);
+        AudioController.Instance.PlaySound2D("crunch_blip");
 
         yield return new WaitForSeconds(0.6f);
         RaiderSpawner.Instance.SpawnRaider();
