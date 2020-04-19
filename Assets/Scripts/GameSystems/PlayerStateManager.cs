@@ -28,7 +28,7 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
     public bool ShoesUntied { get; set; }
     private int standUpProgress = 0;
     private float lastStandupInput;
-    private const float STANDUP_ATTEMPT_DURATION = 0.5f;
+    private const float STANDUP_ATTEMPT_DURATION = 0.1f;
    
     [SerializeField]
     private List<PlayerStateObject> playerObjects;
@@ -39,8 +39,7 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
     [SerializeField]
     private float tripChance = 0.25f;
 
-    [SerializeField]
-    private int standupCount = 4;
+    private int standupCount = 6;
 
     private bool switchingState;
 
@@ -170,6 +169,10 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
                 if (Input.GetButtonDown("PlayerLeft"))
                 {
                     SwitchToState(PlayerState.ShovelTake, -1f);
+                }
+                if (ShoesUntied && Input.GetButtonDown("PlayerDown"))
+                {
+                    SwitchToState(PlayerState.TyingShoes, 0f);
                 }
                 break;
             case PlayerState.Fallen:
