@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class RunState
 {
-    public static int bullets = 3;
-    public static int coal = 21;
+    public const int STARTING_COAL = 21;
+    public const int STARTING_BULLETS = 3;
+
+    public static int bullets = STARTING_BULLETS;
+    public static int coal = STARTING_COAL;
     public static bool lostHeart;
 
     public static void Reset()
     {
-        bullets = 3;
-        coal = 21;
+        bullets = STARTING_BULLETS;
+        coal = STARTING_COAL;
         lostHeart = false;
     }
 }

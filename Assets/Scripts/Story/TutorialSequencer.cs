@@ -85,7 +85,7 @@ public class TutorialSequencer : MonoBehaviour
         PlayerStateManager.Instance.GetCurrentPlayerTransform().Find("laces").GetComponent<SpriteRenderer>().enabled = true;
         yield return new WaitForSeconds(0.5f);
 
-        yield return PlayMessage("oh for the love of-", endAbrupt: true);
+        yield return PlayMessage("oh for the love of ll-", endAbrupt: true);
         yield return PlayMessage("tie your damn shoes man", clear:false);
 
         PlayerStateManager.Instance.enabled = true;
@@ -98,7 +98,7 @@ public class TutorialSequencer : MonoBehaviour
         yield return new WaitUntil(() => !PlayerStateManager.Instance.ShoesUntied);
         shoelacePrompt.SetActive(false);
         yield return new WaitForSeconds(0.3f);
-        yield return PlayMessage("christ... anyways...");
+        yield return PlayMessage("unbelievable... anyways...");
         yield return new WaitForSeconds(0.3f);
 
         heartMachineBlocker.SetActive(false);
