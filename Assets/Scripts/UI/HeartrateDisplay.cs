@@ -22,6 +22,8 @@ public class HeartrateDisplay : MonoBehaviour
     [SerializeField]
     private List<Sprite> rateSprites;
 
+    public bool noSpriteChange;
+
     private void Update()
     {
         foreach (Transform piece in pieces)
@@ -38,6 +40,9 @@ public class HeartrateDisplay : MonoBehaviour
 
     private void SetRateSprite(Transform piece)
     {
-        piece.GetComponent<SpriteRenderer>().sprite = rateSprites[Mathf.RoundToInt(HeartMachine.Instance.Vitality * (rateSprites.Count -1))];
+        if (!noSpriteChange)
+        {
+            piece.GetComponent<SpriteRenderer>().sprite = rateSprites[Mathf.RoundToInt(HeartMachine.Instance.Vitality * (rateSprites.Count -1))];
+        }
     }
 }
