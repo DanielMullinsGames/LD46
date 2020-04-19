@@ -28,9 +28,35 @@ public class TutorialSequencer : MonoBehaviour
     [SerializeField]
     private GameObject shoelacePrompt;
 
+    [SerializeField]
+    private List<GameObject> controlsPrompts = new List<GameObject>();
+
     private void Start()
     {
         StartCoroutine(Tutorial());
+        PlayerStateManager.Instance.StateChanged += OnStateChanged;
+    }
+
+    private void OnStateChanged(PlayerState state)
+    {
+        switch (state)
+        {
+            case PlayerState.PumpUp:
+                controlsPrompts[0].SetActive(false);
+                break;
+            case PlayerState.AimingGun:
+                controlsPrompts[1].SetActive(false);
+                break;
+            case PlayerState.ShovelTake:
+                controlsPrompts[2].SetActive(false);
+                break;
+            case PlayerState.ShovelPlace:
+                controlsPrompts[3].SetActive(false);
+                break;
+            case PlayerState.PumpDown:
+                controlsPrompts[4].SetActive(false);
+                break;
+        }
     }
 
     private IEnumerator Tutorial()
@@ -95,6 +121,11 @@ public class TutorialSequencer : MonoBehaviour
         trainAnim.enabled = true;
         TrainProgressManager.Instance.Paused = false;
         HeartMachine.Instance.Paused = false;
+
+        yield return new WaitForSeconds(1f);
+        controlsPrompts.ForEach(x => x.SetActive(true));
+        AudioController.Instance.PlaySound2D("crunch_blip");
+
         PlayerStateManager.Instance.enabled = true;
         PlayerStateManager.Instance.OnlyShoes = false;
     }
