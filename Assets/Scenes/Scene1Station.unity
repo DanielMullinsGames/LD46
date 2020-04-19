@@ -206,42 +206,42 @@ PrefabInstance:
     - target: {fileID: 323067454236911414, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_ReverbPreset
-      value: 11
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 323067454236911414, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_RoomHF
-      value: -1000
+      value: -454
       objectReference: {fileID: 0}
     - target: {fileID: 323067454236911414, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_DecayTime
-      value: 10.05
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 323067454236911414, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_DecayHFRatio
-      value: 0.23
+      value: 0.83
       objectReference: {fileID: 0}
     - target: {fileID: 323067454236911414, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_Reflections
-      value: -602
+      value: -1646
       objectReference: {fileID: 0}
     - target: {fileID: 323067454236911414, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_ReflectionsDelay
-      value: 0.02
+      value: 0.002
       objectReference: {fileID: 0}
     - target: {fileID: 323067454236911414, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_Reverb
-      value: 198
+      value: 53
       objectReference: {fileID: 0}
     - target: {fileID: 323067454236911414, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_ReverbDelay
-      value: 0.03
+      value: 0.003
       objectReference: {fileID: 0}
     - target: {fileID: 7137609442661504360, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}

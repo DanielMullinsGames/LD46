@@ -235,6 +235,26 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.77647066
       objectReference: {fileID: 0}
+    - target: {fileID: 1284228969011765143, guid: 87e9f9e623a75ae43851c2553ea39227,
+        type: 3}
+      propertyPath: vitalityDecayRate
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284228969011765143, guid: 87e9f9e623a75ae43851c2553ea39227,
+        type: 3}
+      propertyPath: deathTime
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284228969170859856, guid: 87e9f9e623a75ae43851c2553ea39227,
+        type: 3}
+      propertyPath: baseSpeedModifier
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284228969170859856, guid: 87e9f9e623a75ae43851c2553ea39227,
+        type: 3}
+      propertyPath: baseVelocityDecay
+      value: 3.3
+      objectReference: {fileID: 0}
     - target: {fileID: 1284228969170859859, guid: 87e9f9e623a75ae43851c2553ea39227,
         type: 3}
       propertyPath: bgAnim
@@ -413,6 +433,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 111617159102006435, guid: d000d091498f5204fb8363036e8f7d0f,
+        type: 3}
+      propertyPath: nextSceneName
+      value: Scene3Station
+      objectReference: {fileID: 0}
     - target: {fileID: 7137609442661504360, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.x

@@ -164,26 +164,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 101508403}
-  nextScene: Scene2
+  nextScene: Scene3
   ui: {fileID: 7958692622279912516}
   baseCoalGain: 20
   replenishCoal: 1
   baseBulletsGain: 0
   deadHeartLines: []
   noCoalLines:
-  - h- how did you get so low on coal? from vancouver?
-  - '...take some of ours. but you''ll pay later'
+  - nearly out of coal, huh?
+  - s'ppose that's fair consid'rin the hills
   noBulletsLines:
-  - y- you're out of bullets? w- what the hell were you doing out there?
-  - '...take this. but you will pay later'
+  - y' really gave those RAILWORKERS a taste of lead huh?
+  - this one's on the house
   mainLines:
-  - y- you have no idea how lucky you are
-  - to be transporting cargo like that...
-  - oh you'll be rewarded for this alright
-  - '...long haul to redding coming up, huh?'
-  - steep inclines... we have some extra coal for you
+  - 'welcome to reddin''. population: not a heck of a lot'
+  - supposin' with cargo like that yuh won't be stayin' long
+  - we got our payment from HQ so we have your coal
   partingLines:
-  - oh llord... what an honor
+  - next intact station i reckon is... pasadena?
+  - be sparin' with that coal. no guarantees they'll have any. what with the turmoil
+    down there
+  - stay safe partner
 --- !u!114 &101508403 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5437201899792805939, guid: a629f7c280dec714e846146bbdfe3b8b,
@@ -206,42 +207,42 @@ PrefabInstance:
     - target: {fileID: 323067454236911414, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_ReverbPreset
-      value: 11
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 323067454236911414, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_RoomHF
-      value: -1000
+      value: -454
       objectReference: {fileID: 0}
     - target: {fileID: 323067454236911414, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_DecayTime
-      value: 10.05
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 323067454236911414, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_DecayHFRatio
-      value: 0.23
+      value: 0.83
       objectReference: {fileID: 0}
     - target: {fileID: 323067454236911414, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_Reflections
-      value: -602
+      value: -1646
       objectReference: {fileID: 0}
     - target: {fileID: 323067454236911414, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_ReflectionsDelay
-      value: 0.02
+      value: 0.002
       objectReference: {fileID: 0}
     - target: {fileID: 323067454236911414, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_Reverb
-      value: 198
+      value: 53
       objectReference: {fileID: 0}
     - target: {fileID: 323067454236911414, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_ReverbDelay
-      value: 0.03
+      value: 0.003
       objectReference: {fileID: 0}
     - target: {fileID: 7137609442661504360, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
@@ -397,6 +398,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437201899792805939, guid: a629f7c280dec714e846146bbdfe3b8b,
+        type: 3}
+      propertyPath: voicePitch
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 5997429275242864656, guid: a629f7c280dec714e846146bbdfe3b8b,
         type: 3}
