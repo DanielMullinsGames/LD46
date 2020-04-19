@@ -40,6 +40,7 @@ public class Raider : MonoBehaviour
     {
         GetComponent<Animator>().Play("die", 0, 0f);
         enabled = false;
+        TrainProgressManager.Instance.AddFuel(50f);
     }
 
     private void Update()
