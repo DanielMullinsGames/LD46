@@ -161,7 +161,7 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
                 }
                 break;
             case PlayerState.AimingGun:
-                if (RaiderSpawner.Instance.CurrentRaider != null && RaiderSpawner.Instance.CurrentRaider.CanBeShot)
+                if (RaiderSpawner.Instance.CurrentRaider != null && RaiderSpawner.Instance.CurrentRaider.CanBeShot && RunState.bullets > 0)
                 {
                     if (Input.GetButtonDown("PlayerUp"))
                     {
@@ -248,6 +248,9 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
         CustomCoroutine.WaitThenExecute(0.05f, () => gunflare.SetActive(false));
         AudioController.Instance.PlaySound2D("gunshot_2");
         RaiderSpawner.Instance.OnRaiderShot();
+
+        RunState.bullets--;
+        BulletsDisplay.Instance.UpdateDisplay();
     }
 
     private PlayerStateObject GetPlayerObject(PlayerState state)
