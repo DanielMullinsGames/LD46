@@ -34,6 +34,9 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
     private List<PlayerStateObject> playerObjects;
 
     [SerializeField]
+    private GameObject shootHint;
+
+    [SerializeField]
     private GameObject gunflare;
 
     [SerializeField]
@@ -42,6 +45,8 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
     private int standupCount = 6;
 
     private bool switchingState;
+
+    private static bool learnedShooting;
 
     public Transform GetCurrentPlayerTransform()
     {
@@ -199,8 +204,11 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
                 {
                     if (Input.GetButtonDown("PlayerUp"))
                     {
+                        learnedShooting = true;
                         ShootGun();
                     }
+
+                    shootHint.gameObject.SetActive(!learnedShooting);
                 }
                 else
                 {
