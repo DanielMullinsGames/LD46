@@ -15,7 +15,7 @@ public class RunState
     public static void Reset()
     {
         bullets = STARTING_BULLETS;
-        coal = STARTING_COAL;
+        coal = STARTING_COAL + 35;
         lostHeart = false;
         harvestedHeart = false;
     }

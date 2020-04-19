@@ -177,6 +177,8 @@ MonoBehaviour:
   - you are putting me in a very bad place... but it is still an honor
   noCoalLines:
   - h- how did you get so low on coal? from vancouver?
+  - are you slamming it into that furnace as fast as possible? even when you're near
+    max speed?
   - '...take some of ours. but you''ll pay later'
   noBulletsLines:
   - y- you're out of bullets? w- what the hell were you doing out there?
@@ -191,6 +193,7 @@ MonoBehaviour:
   - oh llord... what an honor
   gunshotEvent: 0
   redText: {fileID: 0}
+  noGunshotNewHeart: 0
 --- !u!114 &101508403 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5437201899792805939, guid: a629f7c280dec714e846146bbdfe3b8b,
