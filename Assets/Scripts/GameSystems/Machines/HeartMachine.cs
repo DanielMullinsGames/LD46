@@ -6,7 +6,7 @@ public class HeartMachine : Singleton<HeartMachine>
 {
     public bool Paused { get; set; }
     public bool AudioPaused { get; set; }
-    public float Vitality { get; private set; }
+    public float Vitality { get;  set; }
 
     [SerializeField]
     private float vitalityDecayRate;
@@ -34,7 +34,7 @@ public class HeartMachine : Singleton<HeartMachine>
             Vitality = Mathf.Clamp(Vitality - (vitalityDecayRate * Time.deltaTime), 0f, 1f);
         }
 
-        if (Vitality <= 0f)
+        if (Vitality <= 0f && !Paused)
         {
             flatlineSource.enabled = true;
 

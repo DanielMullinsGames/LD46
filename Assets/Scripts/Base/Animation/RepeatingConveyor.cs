@@ -50,7 +50,7 @@ public class RepeatingConveyor : MonoBehaviour
         foreach (Transform obj in objects)
         {
             obj.localPosition += Vector3.left * moveSpeed * Time.deltaTime * MoveSpeedModifier;
-            if (obj.localPosition.x < LeftBound)
+            if (obj.localPosition.x < LeftBound && !GameFlowManager.Instance.ArrivingAtDestination)
             {
                 obj.localPosition = new Vector3(RightBound, obj.localPosition.y, obj.localPosition.z);
             }

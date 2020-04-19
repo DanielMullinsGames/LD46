@@ -40,6 +40,22 @@ public class RaiderSpawner : Singleton<RaiderSpawner>
         }
     }
 
+    public void OnReachedDestination()
+    {
+        enabled = false;
+        if (CurrentRaider != null)
+        {
+            StartCoroutine(KillOffRemainingRaider());
+        }
+    }
+
+    private IEnumerator KillOffRemainingRaider()
+    {
+        yield return new WaitUntil(() => CurrentRaider.CanBeShot);
+        AudioController.Instance.PlaySound2D("gunshot_2", volume: 0.5f);
+        OnRaiderShot();
+    }
+
     public void OnRaiderShot()
     {
         CurrentRaider.Die();

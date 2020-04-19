@@ -32,14 +32,22 @@ public class TrainProgressManager : Singleton<TrainProgressManager>
     {
         if (!Paused)
         {
-            float velocityDecay = baseVelocityDecay;
-            if (Velocity > 100f)
+            if (DestinationProgress >= 1f)
             {
-                velocityDecay *= 3f;
+                Velocity = Mathf.Max(Velocity - (Time.deltaTime * 10f), 0f);
+                GameFlowManager.Instance.OnReachedDestination();
             }
+            else
+            {
+                float velocityDecay = baseVelocityDecay;
+                if (Velocity > 100f)
+                {
+                    velocityDecay *= 3f;
+                }
 
-            Velocity = Mathf.Max(Velocity - (Time.deltaTime * velocityDecay), 0f);
-            DestinationProgress += Time.deltaTime * Mathf.Max(0.1f, Velocity) * 0.0001f * baseSpeedModifier;
+                Velocity = Mathf.Max(Velocity - (Time.deltaTime * velocityDecay), 0f);
+                DestinationProgress += Time.deltaTime * Mathf.Max(0.1f, Velocity) * 0.0001f * baseSpeedModifier;
+            }
         }
 
 #if UNITY_EDITOR
@@ -50,6 +58,10 @@ public class TrainProgressManager : Singleton<TrainProgressManager>
         if (Input.GetKeyDown(KeyCode.X))
         {
             SlowTrain(15f);
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            DestinationProgress += 0.2f;
         }
 #endif
     }

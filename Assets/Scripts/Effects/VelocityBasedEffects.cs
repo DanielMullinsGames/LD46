@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VelocityBasedEffects : MonoBehaviour
+public class VelocityBasedEffects : Singleton<VelocityBasedEffects>
 {
     [SerializeField]
     private List<AutoRotate> wheels;
@@ -29,10 +29,21 @@ public class VelocityBasedEffects : MonoBehaviour
         baseWheelSpeed = wheels[0].rotateSpeed;    
     }
 
+    public void Freeze()
+    {
+        enabled = false;
+        SetSpeed(0f);
+    }
+
     private void Update()
     {
         float modifier = apparentVelocityCurve.Evaluate(TrainProgressManager.Instance.NormalizedVelocity);
 
+        SetSpeed(modifier);
+    }
+
+    private void SetSpeed(float modifier)
+    {
         fgConveyor.MoveSpeedModifier = modifier;
         trainShakeAnim.speed = modifier * 2f;
         bgAnim.speed = modifier * 2f;
