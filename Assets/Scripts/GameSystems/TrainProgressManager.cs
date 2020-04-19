@@ -7,6 +7,7 @@ public class TrainProgressManager : Singleton<TrainProgressManager>
     public bool Paused { get; set; }
     public float Velocity { get; private set; }
     public float NormalizedVelocity { get { return (Velocity - MIN_VELOCITY) / (MAX_VELOCITY - MIN_VELOCITY); } }
+    public float VelocityDecayModifier { get; set; }
 
     public float DestinationProgress { get; private set; }
 
@@ -25,6 +26,7 @@ public class TrainProgressManager : Singleton<TrainProgressManager>
 
     private void Start()
     {
+        VelocityDecayModifier = 1f;
         Velocity = 75f;
     }
 
@@ -39,7 +41,7 @@ public class TrainProgressManager : Singleton<TrainProgressManager>
             }
             else
             {
-                float velocityDecay = baseVelocityDecay;
+                float velocityDecay = baseVelocityDecay * VelocityDecayModifier;
                 if (Velocity > 100f)
                 {
                     velocityDecay *= 3f;
