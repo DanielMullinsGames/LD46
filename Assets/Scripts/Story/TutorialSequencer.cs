@@ -5,6 +5,9 @@ using UnityEngine;
 public class TutorialSequencer : MonoBehaviour
 {
     [SerializeField]
+    private AudioSource trainAudio;
+
+    [SerializeField]
     private SequentialText text;
 
     [SerializeField]
@@ -68,6 +71,11 @@ public class TutorialSequencer : MonoBehaviour
         TrainProgressManager.Instance.Paused = true;
         HeartMachine.Instance.Paused = true;
         PlayerStateManager.Instance.enabled = false;
+        trainAudio.enabled = false;
+        HeartMachine.Instance.AudioPaused = true;
+
+        AudioController.Instance.PlaySound2D("crunch_blip");
+        yield return new WaitForSeconds(1f);
 
         yield return PlayMessage("you didn't forget. did you now. old timer?");
         yield return PlayMessage("this is the most important haul in your whole long-ass life");
@@ -95,6 +103,7 @@ public class TutorialSequencer : MonoBehaviour
 
         heartMachineBlocker.SetActive(false);
         AudioController.Instance.PlaySound2D("crunch_blip");
+        HeartMachine.Instance.AudioPaused = false;
         yield return new WaitForSeconds(1f);
 
         yield return PlayMessage("you gotta keep that beating heart alive all the way from vancouver to tijuana");
@@ -126,6 +135,7 @@ public class TutorialSequencer : MonoBehaviour
         yield return PlayMessage("your first stop is seattle. once you get not far out 'a vancouver's cell tower i'm gonna cut ou-", endAbrupt: true);
         AudioController.Instance.PlaySound2D("crunch_blip");
         finalBlockers.ForEach(x => x.SetActive(false));
+        trainAudio.enabled = true;
 
         trainAnim.enabled = true;
         TrainProgressManager.Instance.Paused = false;

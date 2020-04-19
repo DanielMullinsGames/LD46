@@ -328,6 +328,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acb3ae79e1a2ab5469c813435f46dc7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trainAudio: {fileID: 361741237}
+  heartAudio: {fileID: 0}
   text: {fileID: 874836268}
   heartMachineBlocker: {fileID: 818618497}
   furnaceBlocker: {fileID: 701968278}
@@ -604,6 +606,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!82 &361741237 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7084474590558629991, guid: 87e9f9e623a75ae43851c2553ea39227,
+    type: 3}
+  m_PrefabInstance: {fileID: 1284228967161731253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &413583105 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7396429598762221720, guid: dd763e3339dfc61448a51cdf01ff1949,

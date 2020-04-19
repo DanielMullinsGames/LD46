@@ -5,6 +5,7 @@ using UnityEngine;
 public class HeartMachine : Singleton<HeartMachine>
 {
     public bool Paused { get; set; }
+    public bool AudioPaused { get; set; }
     public float Vitality { get; private set; }
 
     [SerializeField]
@@ -48,11 +49,14 @@ public class HeartMachine : Singleton<HeartMachine>
             deathTimer = 0f;
             flatlineSource.enabled = false;
 
-            beepTimer += Time.deltaTime;
-            if (beepTimer > Mathf.Max(0.1f, Vitality * 2f))
+            if (!AudioPaused)
             {
-                beepTimer = 0f;
-                AudioController.Instance.PlaySound2D("short_beep", volume: 0.1f);
+                beepTimer += Time.deltaTime;
+                if (beepTimer > Mathf.Max(0.1f, Vitality * 2f))
+                {
+                    beepTimer = 0f;
+                    AudioController.Instance.PlaySound2D("short_beep", volume: 0.1f);
+                }
             }
         }
 
