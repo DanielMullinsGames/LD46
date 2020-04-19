@@ -33,7 +33,7 @@ public class Scene2Sequencer : MonoBehaviour
             secondInclineEnded = true;
             SetIncline(0f);
         }
-        if (TrainProgressManager.Instance.DestinationProgress > 0.8f && !declineStarted)
+        if (TrainProgressManager.Instance.DestinationProgress > 0.75f && !declineStarted)
         {
             declineStarted = true;
             SetIncline(-4f);

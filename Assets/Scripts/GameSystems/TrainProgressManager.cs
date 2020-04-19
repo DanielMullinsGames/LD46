@@ -47,7 +47,7 @@ public class TrainProgressManager : Singleton<TrainProgressManager>
                     velocityDecay *= 3f;
                 }
 
-                Velocity = Mathf.Max(Velocity - (Time.deltaTime * velocityDecay), 0f);
+                Velocity = Mathf.Clamp(Velocity - (Time.deltaTime * velocityDecay), 0f, 1f);
                 DestinationProgress += Time.deltaTime * Mathf.Max(0.1f, Velocity) * 0.0001f * baseSpeedModifier;
             }
         }
