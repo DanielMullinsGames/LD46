@@ -9,9 +9,11 @@ public class Raider : MonoBehaviour
     private float shootTimer = 0f;
     private bool canShoot;
 
+    public bool CanBeShot { get; private set; }
+
     public void OnBecomeShootableKeyframe()
     {
-
+        CanBeShot = true;
     }
 
     public void GrappleKeyframe()
@@ -49,8 +51,9 @@ public class Raider : MonoBehaviour
 
     private void Shoot()
     {
-        var gunshot = AudioController.Instance.PlaySound2D("gunshot");
+        var gunshot = AudioController.Instance.PlaySound2D("gunshot_2");
         DontDestroyOnLoad(gunshot.gameObject);
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Dialogue");
+        GameFlowManager.Instance.OnPlayerKilled();
+        enabled = false;
     }
 }
