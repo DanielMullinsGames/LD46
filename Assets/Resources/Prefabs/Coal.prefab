@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 5319548409451122266}
+  textColor: {r: 1, g: 0.93725497, b: 0.8196079, a: 1}
 --- !u!1 &4238827964672058426
 GameObject:
   m_ObjectHideFlags: 0
