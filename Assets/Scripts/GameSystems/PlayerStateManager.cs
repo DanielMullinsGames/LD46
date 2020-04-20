@@ -44,7 +44,7 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
 
     private float tripChance = 0.2f;
 
-    private int standupCount = 6;
+    private int standupCount = 3;
 
     private bool switchingState;
 
@@ -193,7 +193,7 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
                 }
                 break;
             case PlayerState.Fallen:
-                if (Input.GetButtonDown("PlayerLeft") || Input.GetButtonDown("PlayerRight") || Input.GetButtonDown("PlayerUp"))
+                if (Input.GetButtonDown("PlayerLeft") || Input.GetButtonDown("PlayerRight") || Input.GetButtonDown("PlayerUp") || Input.GetButtonDown("PlayerDown"))
                 {
                     if (Time.time - STANDUP_ATTEMPT_DURATION > lastStandupInput)
                     {
