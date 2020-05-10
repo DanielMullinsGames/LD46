@@ -44,7 +44,7 @@ public class PlayerStateManager : Singleton<PlayerStateManager>
 
     private float tripChance = 0.2f;
 
-    private int standupCount = 3;
+    private int standupCount = 4;
 
     private bool switchingState;
 
