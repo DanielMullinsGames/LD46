@@ -139,7 +139,7 @@ public class SequentialText : MonoBehaviour
 
             if (Skipping())
             {
-                adjustedFrequency *= 0.2f;
+                adjustedFrequency *= 0.1f;
             }
 
             float waitTimer = 0f;
@@ -160,7 +160,9 @@ public class SequentialText : MonoBehaviour
 
     private void PlaySound()
     {
-        AudioController.Instance.PlaySound2D("dialogue_sound", volume: 0.5f, pitch: new AudioParams.Pitch(voicePitch), randomization: new AudioParams.Randomization(), repetition: new AudioParams.Repetition(0.05f, "dialogue"));
+        AudioController.Instance.PlaySound2D("dialogue_sound", volume: 0.3f, pitch: new AudioParams.Pitch(voicePitch), 
+            randomization: new AudioParams.Randomization(), 
+            repetition: new AudioParams.Repetition(0.05f, "dialogue"));
     }
 
     public static string ColorString(string str, Color c)
