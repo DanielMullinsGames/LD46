@@ -180,6 +180,7 @@ MonoBehaviour:
   partingLines: []
   gunshotEvent: 1
   redText: {fileID: 473990051}
+  noGunshotNewHeart: 0
 --- !u!114 &101508403 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5437201899792805939, guid: a629f7c280dec714e846146bbdfe3b8b,
@@ -204,7 +205,7 @@ GameObject:
   - component: {fileID: 473990052}
   - component: {fileID: 473990051}
   - component: {fileID: 473990050}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,22 +414,22 @@ PrefabInstance:
     - target: {fileID: 7137609442661504360, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0
+      value: 0.000657022
       objectReference: {fileID: 0}
     - target: {fileID: 7137609442661504360, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0
+      value: 0.07647058
       objectReference: {fileID: 0}
     - target: {fileID: 7137609442661504360, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 1
+      value: 0.99868596
       objectReference: {fileID: 0}
     - target: {fileID: 7137609442661504360, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 1
+      value: 0.84705883
       objectReference: {fileID: 0}
     - target: {fileID: 7137609442661504363, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
@@ -492,9 +493,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d000d091498f5204fb8363036e8f7d0f, type: 3}
---- !u!20 &865952151 stripped
+--- !u!20 &865952152 stripped
 Camera:
-  m_CorrespondingSourceObject: {fileID: 7137609442661504360, guid: d000d091498f5204fb8363036e8f7d0f,
+  m_CorrespondingSourceObject: {fileID: 2416450926416837989, guid: d000d091498f5204fb8363036e8f7d0f,
     type: 3}
   m_PrefabInstance: {fileID: 865952150}
   m_PrefabAsset: {fileID: 0}
@@ -510,7 +511,7 @@ GameObject:
   - component: {fileID: 934435766}
   - component: {fileID: 934435765}
   - component: {fileID: 934435764}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: RED TEXT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -586,7 +587,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 865952151}
+  m_Camera: {fileID: 865952152}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
@@ -698,12 +699,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 865952151}
+      objectReference: {fileID: 865952152}
     - target: {fileID: 8533628606828315653, guid: a629f7c280dec714e846146bbdfe3b8b,
         type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 865952151}
+      objectReference: {fileID: 865952152}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a629f7c280dec714e846146bbdfe3b8b, type: 3}
 --- !u!1 &7958692622279912516 stripped

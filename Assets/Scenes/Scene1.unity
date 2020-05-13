@@ -790,12 +790,6 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 1284228967161731253}
   m_PrefabAsset: {fileID: 0}
---- !u!20 &519420031 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 7137609442661504360, guid: d000d091498f5204fb8363036e8f7d0f,
-    type: 3}
-  m_PrefabInstance: {fileID: 7137609442700668183}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &564224723
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,7 +882,7 @@ GameObject:
   - component: {fileID: 573502026}
   - component: {fileID: 573502028}
   - component: {fileID: 573502027}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1126,7 +1120,7 @@ GameObject:
   - component: {fileID: 650627729}
   - component: {fileID: 650627728}
   - component: {fileID: 650627727}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: TextCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1182,7 +1176,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 519420031}
+  m_Camera: {fileID: 7137609442700668184}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
@@ -1463,7 +1457,7 @@ GameObject:
   - component: {fileID: 874836267}
   - component: {fileID: 874836268}
   - component: {fileID: 874836266}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1965,7 +1959,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1427857400}
   - component: {fileID: 1427857401}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Coal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2544,7 +2538,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 519420031}
+      objectReference: {fileID: 7137609442700668184}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f87144f8c86d91349abc46d7727e0fa0, type: 3}
 --- !u!1001 &7137609442700668183
@@ -2646,6 +2640,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d000d091498f5204fb8363036e8f7d0f, type: 3}
+--- !u!20 &7137609442700668184 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 2416450926416837989, guid: d000d091498f5204fb8363036e8f7d0f,
+    type: 3}
+  m_PrefabInstance: {fileID: 7137609442700668183}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7396429598366271385
 PrefabInstance:
   m_ObjectHideFlags: 0
