@@ -4,6 +4,8 @@ using System.Collections;
 [ExecuteInEditMode]
 public class PixelCamera : MonoBehaviour 
 {
+    public int Scale { get; set; }
+
     [SerializeField]
     private int heightMin = 450;
 
@@ -33,13 +35,13 @@ public class PixelCamera : MonoBehaviour
 
 		cam.orthographicSize = (renderHeight / 2) / (float)PIXELS_PER_UNIT;
 
-        int scale = Mathf.Max(1, Mathf.Max(Screen.height / renderHeight, 1));
-        actualHeight = (int)(renderHeight * scale);
+        Scale = Mathf.Max(1, Mathf.Max(Screen.height / renderHeight, 1));
+        actualHeight = (int)(renderHeight * Scale);
 		
-		renderWidth = (int)(Screen.width / scale);
+		renderWidth = (int)(Screen.width / Scale);
         renderWidth = MakeEven(renderWidth);
 
-		actualWidth = (int)(renderWidth * scale);
+		actualWidth = (int)(renderWidth * Scale);
 
 		Rect rect = cam.rect;
 		rect.width = (float)actualWidth / Screen.width;
