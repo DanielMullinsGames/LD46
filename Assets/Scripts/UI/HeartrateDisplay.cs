@@ -42,7 +42,7 @@ public class HeartrateDisplay : MonoBehaviour
     {
         if (!noSpriteChange)
         {
-            piece.GetComponent<SpriteRenderer>().sprite = rateSprites[Mathf.RoundToInt(HeartMachine.Instance.Vitality * (rateSprites.Count -1))];
+            piece.GetComponentInChildren<SpriteRenderer>().sprite = rateSprites[Mathf.RoundToInt(HeartMachine.Instance.Vitality * (rateSprites.Count -1))];
         }
     }
 }
