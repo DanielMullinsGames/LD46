@@ -10,8 +10,10 @@ public class FinaleSequencer : MonoBehaviour
 
     public SequentialText text;
 
-    public GameObject heartGood;
-    public GameObject heartBad;
+    public GameObject playerFrame1;
+    public GameObject playerFrame2;
+    public List<GameObject> heartGood;
+    public List<GameObject> heartBad;
     public GameObject flatline;
 
     private void Start()
@@ -21,8 +23,8 @@ public class FinaleSequencer : MonoBehaviour
 
     public IEnumerator Sequence()
     {
-        heartGood.SetActive(!RunState.lostHeart);
-        heartBad.SetActive(RunState.lostHeart);
+        heartGood.ForEach(x => x.SetActive(!RunState.lostHeart));
+        heartBad.ForEach(x => x.SetActive(RunState.lostHeart));
 
         StartCoroutine("Beeping");
 
@@ -44,11 +46,18 @@ public class FinaleSequencer : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         bgBlock.SetActive(false);
         AudioController.Instance.PlaySound2D("crunch_blip");
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
 
         controlsHint.SetActive(true);
         AudioController.Instance.PlaySound2D("crunch_blip");
         yield return new WaitUntil(() => Input.GetButton("PlayerRight"));
+
+        AudioController.Instance.PlaySound2D("crunch_blip");
+        text.Clear();
+        controlsHint.SetActive(false);
+        playerFrame1.SetActive(false);
+        playerFrame2.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
 
         AudioController.Instance.PlaySound2D("crunch_short_1");
         allBlock.SetActive(true);
