@@ -50,7 +50,34 @@ public class FinaleSequencer : MonoBehaviour
 
         controlsHint.SetActive(true);
         AudioController.Instance.PlaySound2D("crunch_blip");
-        yield return new WaitUntil(() => Input.GetButton("PlayerRight"));
+
+        float timer = 0f;
+        int messageIndex = 0;
+        while (!Input.GetButton("PlayerRight"))
+        {
+            timer += Time.deltaTime;
+
+            if (timer > 4f && messageIndex == 0)
+            {
+                messageIndex++;
+                StartCoroutine(PlayMessage("what are you doing?"));
+            }
+            else if (timer > 10f && messageIndex == 1)
+            {
+                messageIndex++;
+                StartCoroutine(PlayMessage("g- give it here!"));
+            }
+            else if (timer > 20f && messageIndex == 2 && !RunState.lostHeart)
+            {
+                messageIndex++;
+                AudioController.Instance.PlaySound2D("crunch_blip");
+                heartGood.ForEach(x => x.SetActive(false));
+                heartBad.ForEach(x => x.SetActive(true));
+                RunState.lostHeart = true;
+            }
+
+            yield return new WaitForEndOfFrame();
+        }
 
         AudioController.Instance.PlaySound2D("crunch_blip");
         text.Clear();
