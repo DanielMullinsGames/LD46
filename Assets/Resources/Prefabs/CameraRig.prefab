@@ -720,7 +720,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4920252838380743136}
   - component: {fileID: 4268915445186069092}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Coal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
