@@ -135,8 +135,8 @@ TextureImporter:
         y: 202
         width: 43
         height: 54
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.4883721, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,9 +173,9 @@ TextureImporter:
       name: player_frames_2
       rect:
         serializedVersion: 2
-        x: 96
+        x: 95
         y: 202
-        width: 55
+        width: 56
         height: 54
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -259,7 +259,7 @@ TextureImporter:
         serializedVersion: 2
         x: 113
         y: 143
-        width: 71
+        width: 72
         height: 20
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -364,7 +364,7 @@ TextureImporter:
         serializedVersion: 2
         x: 3
         y: 39
-        width: 29
+        width: 30
         height: 56
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -388,7 +388,7 @@ TextureImporter:
         width: 35
         height: 13
       alignment: 9
-      pivot: {x: 0.066907175, y: 0.3525725}
+      pivot: {x: 0.057142857, y: 0.3846154}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
