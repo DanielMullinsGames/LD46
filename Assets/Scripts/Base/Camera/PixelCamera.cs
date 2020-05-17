@@ -12,6 +12,9 @@ public class PixelCamera : MonoBehaviour
     [SerializeField]
     private int heightMax = 550;
 
+    [SerializeField]
+    private Camera otherCameraMatchRect;
+
     private const float MIN_ASPECT_RATIO = 1.75f;
 
 	public const int PIXELS_PER_UNIT = 100;
@@ -49,6 +52,11 @@ public class PixelCamera : MonoBehaviour
 		rect.x = (1 - rect.width) / 2;
 		rect.y = (1 - rect.height) / 2;
 		cam.rect = rect;
+
+        if (otherCameraMatchRect != null)
+        {
+            otherCameraMatchRect.rect = rect;
+        }
 	}
 
     private int GetReferenceHeight()

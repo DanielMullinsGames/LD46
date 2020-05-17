@@ -411,25 +411,35 @@ PrefabInstance:
       propertyPath: m_ReverbDelay
       value: 0.003
       objectReference: {fileID: 0}
+    - target: {fileID: 2416450926416837989, guid: d000d091498f5204fb8363036e8f7d0f,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416450926416837989, guid: d000d091498f5204fb8363036e8f7d0f,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7137609442661504360, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.000657022
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7137609442661504360, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.07647058
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7137609442661504360, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.99868596
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7137609442661504360, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.84705883
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7137609442661504363, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
@@ -526,8 +536,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 934435762}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalScale: {x: 0.010000001, y: 0.010000001, z: 0.010000001}
   m_Children:
   - {fileID: 473990049}
   m_Father: {fileID: 100389023}
@@ -536,8 +546,8 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_SizeDelta: {x: 320, y: 179.99998}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &934435764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -586,7 +596,7 @@ Canvas:
   m_GameObject: {fileID: 934435762}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 2
   m_Camera: {fileID: 865952152}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
@@ -694,6 +704,16 @@ PrefabInstance:
         type: 3}
       propertyPath: voicePitch
       value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5604227571344046878, guid: a629f7c280dec714e846146bbdfe3b8b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -22.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 5604227571344046878, guid: a629f7c280dec714e846146bbdfe3b8b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 62.36
       objectReference: {fileID: 0}
     - target: {fileID: 5997429275242864656, guid: a629f7c280dec714e846146bbdfe3b8b,
         type: 3}

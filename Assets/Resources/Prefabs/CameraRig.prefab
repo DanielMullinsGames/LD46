@@ -213,9 +213,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: 0.09337351
     width: 1
-    height: 1
+    height: 0.813253
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -450,9 +450,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: 0.09337351
     width: 1
-    height: 1
+    height: 0.813253
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -495,6 +495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heightMin: 180
   heightMax: 180
+  otherCameraMatchRect: {fileID: 2416450926416837989}
 --- !u!1 &7137609443526179398
 GameObject:
   m_ObjectHideFlags: 0

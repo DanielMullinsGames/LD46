@@ -262,7 +262,7 @@ PrefabInstance:
     - target: {fileID: 7137609442661504360, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0
+      value: 0.09337351
       objectReference: {fileID: 0}
     - target: {fileID: 7137609442661504360, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
@@ -272,7 +272,7 @@ PrefabInstance:
     - target: {fileID: 7137609442661504360, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 1
+      value: 0.813253
       objectReference: {fileID: 0}
     - target: {fileID: 7137609442661504363, guid: d000d091498f5204fb8363036e8f7d0f,
         type: 3}
@@ -413,6 +413,16 @@ PrefabInstance:
         type: 3}
       propertyPath: voicePitch
       value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5604227571344046878, guid: a629f7c280dec714e846146bbdfe3b8b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -22.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 5604227571344046878, guid: a629f7c280dec714e846146bbdfe3b8b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 62.36
       objectReference: {fileID: 0}
     - target: {fileID: 5997429275242864656, guid: a629f7c280dec714e846146bbdfe3b8b,
         type: 3}
