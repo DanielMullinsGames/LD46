@@ -58,6 +58,9 @@ public class StationSequencer : MonoBehaviour
 
     private IEnumerator StationSequence()
     {
+        AudioController.Instance.SetLoopAndPlay("rest_stop");
+        //AudioController.Instance.SetLoopVolume(0.5f, 0f);
+
         ui.SetActive(false);
         yield return new WaitForSeconds(1f);
         ui.SetActive(true);
