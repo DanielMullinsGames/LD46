@@ -86,7 +86,7 @@ public class TutorialSequencer : MonoBehaviour
         textSpeedPrompt.SetActive(false);
 
         ShoelacesStation.Instance.Untie();
-        PlayerStateManager.Instance.GetCurrentPlayerTransform().Find("laces").GetComponent<SpriteRenderer>().enabled = true;
+        PlayerStateManager.Instance.GetCurrentPlayerTransform().Find("Sprite/laces").GetComponent<SpriteRenderer>().enabled = true;
         yield return new WaitForSeconds(0.5f);
 
         yield return PlayMessage("oh for the love of ll-", endAbrupt: true);
